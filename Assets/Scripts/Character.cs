@@ -154,26 +154,6 @@ public class Character : MonoBehaviour
 
             Debug.Log("Соприкоснулся с House");
         }
-
-        /*if (other.CompareTag("House") && other.gameObject.GetComponent<House>().teamName == team)
-        {
-            if (boolChest)
-            {
-                gameObject.GetComponentInParent<Team>().AddScore(500);
-                boolChest = false;
-                Destroy(Treasure);
-                SpawnTrasures.Instance.DestroyChest();
-            }
-            else if (boolCoin)
-            {
-                gameObject.GetComponentInParent<Team>().AddScore(250);
-                boolCoin = false;
-                Destroy(Treasure);
-                SpawnTrasures.Instance.DestroyCoin();
-            }
-
-            Debug.Log("Соприкоснулся с House");
-        }*/
     }
 
     public void SpawnIcon(GameObject iconPrefab)
