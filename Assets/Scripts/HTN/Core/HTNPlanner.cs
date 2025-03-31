@@ -4,28 +4,37 @@ using System.Collections.Generic;
 public class HTNPlanner : MonoBehaviour
 {
     
-    public GameObject actor;
+    public Character character;
     public HTNCompoundTask rootTask;
 
 
     private HTNCompoundTask domain;
     private HTNWorldState worldState;
     private PlanRunner planRunner;
-    private List<HTNWorldState> stateStack;
+    private List<HTNWorldState> stateStack = new List<HTNWorldState>();
 
-
-    public void Start()
+    public void Awake()
     {
+        character = gameObject.GetComponent<Character>();
         SetupWorldState();
         SetupDomain();
         SetupPlanRunner();
+    }
+
+    public void Start()
+    {
         Plan();
+    }
+    public void Update()
+    {
+        planRunner.Process();
     }
 
     private void SetupWorldState()
     {
         worldState = new HTNWorldState();
         worldState.OnStateChanged += OnWorldStateChanged;
+        Debug.Log("SetupWorldState");
     }
 
     private void SetupDomain()
@@ -36,32 +45,40 @@ public class HTNPlanner : MonoBehaviour
             return;
         }
 
-        rootTask = domain;
+        domain = rootTask;
     }
 
     private void SetupPlanRunner()
     {
-        if (actor == null)
+        if (character == null)
         {
             Debug.LogError("Actor not defined");
             return;
         }
 
-        planRunner = new PlanRunner(worldState, actor);
+        planRunner = new PlanRunner(worldState, character);
         planRunner.PlanFinished += OnPlanExecutionFinished;
+        Debug.Log("SetupPlanRunner");
     }
 
     private void Plan()
     {
         InitializeWorkingState();
-        List<HTNTask> plan = DecomposeCompoundTask(rootTask);
+        Debug.Log("Plan");
+        List<HTNTask> plan = DecomposeCompoundTask(domain);
 
         if (plan.Count > 0)
         {
             Debug.Log("New Plan");
-            Debug.Log(plan);
+            string textPlan = "План: ";
+            foreach (HTNTask task in plan)
+            {
+                textPlan += $"--> {task} ";
+            }
+            Debug.Log(textPlan);
 
             planRunner.SetPlan(plan);
+
         }
         ClearWorkingState();
 
@@ -119,7 +136,7 @@ public class HTNPlanner : MonoBehaviour
     {
         foreach (string key in conditions.Keys)
         {
-            if (state.GetValue(key) != conditions[key])
+            if (!state.GetValue(key).Equals(conditions[key]))
                 return false;
         }
         return true;
@@ -145,6 +162,7 @@ public class HTNPlanner : MonoBehaviour
 
     private void InitializeWorkingState()
     {
+        Debug.Log(worldState);
         stateStack.Add(worldState.Duplicate());
     }
 

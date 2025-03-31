@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class HTNTask
+public class HTNTask : ScriptableObject
 {
     public enum TaskResult 
     {
@@ -12,7 +12,7 @@ public class HTNTask
 
     public void ApplyEffects(HTNWorldState worldState)
     {
-        var effects = _Effects();
+        var effects = Effects();
         foreach (var effect in effects)
         {
             worldState.SetValue(effect.Key, effect.Value);
@@ -21,7 +21,7 @@ public class HTNTask
 
     public bool IsAvailable(HTNWorldState worldState)
     {
-        Dictionary<string, object> conditions = _PreConditions();
+        Dictionary<string, object> conditions = PreConditions();
         foreach (var condition in conditions)
         {
             if (!worldState.GetValue(condition.Key).Equals(condition.Value))
@@ -32,17 +32,17 @@ public class HTNTask
         return true;
     }
 
-    private Dictionary<string, object> _Effects()
+    public virtual Dictionary<string, object> PreConditions()
     {
         return new Dictionary<string, object>();
     }
 
-    private Dictionary<string, object> _PreConditions()
+    public virtual Dictionary<string, object> Effects()
     {
         return new Dictionary<string, object>();
     }
 
-    public virtual TaskResult Execute(GameObject actor)
+    public virtual TaskResult Execute(Character character)
     {
         return TaskResult.SUCCESS;
     }

@@ -623,8 +623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabsTeams:
-  - {fileID: 6322892919919115968, guid: ede1cafa2c83f5f4cbf7095e3b0c5060, type: 3}
-  - {fileID: 6719704708116214441, guid: a2586ac3aa9a78c438e42206785e8a4d, type: 3}
+  - {fileID: 6322892919919115968, guid: 14f8368275f9aac46a1c1561b333df84, type: 3}
   prefabTresures: {fileID: 1058223818535830210, guid: 4edcaf30ed8c6014d8b3c753ca1ff218, type: 3}
   targetScore: 1500
   maxRounds: 10

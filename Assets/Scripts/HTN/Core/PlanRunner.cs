@@ -8,12 +8,12 @@ public class PlanRunner
 
     private HTNWorldState worldState;
     private List<HTNTask> tasks;
-    private GameObject actor;
+    private Character character;
 
-    public PlanRunner(HTNWorldState _worldState, GameObject _actor)
+    public PlanRunner(HTNWorldState _worldState, Character _character)
     {
         worldState = _worldState;
-        actor = _actor;
+        character = _character;
     }
 
     public void SetPlan(List<HTNTask> _tasks)
@@ -32,12 +32,12 @@ public class PlanRunner
     public void ExecuteCurrentTask()
     {
         HTNTask currentTask = tasks[0];
-        HTNTask.TaskResult taskResult = currentTask.Execute(actor);
+        HTNTask.TaskResult taskResult = currentTask.Execute(character);
 
         switch (taskResult)
         {
             case HTNTask.TaskResult.PROCESSING:
-                return;
+                break;
             case HTNTask.TaskResult.FAILURE:
                 Debug.Log("Task failed  " + currentTask);
                 FinishPlan();
@@ -60,7 +60,7 @@ public class PlanRunner
         }
 
         HTNTask newTask = tasks[0];
-        Debug.Log(worldState.state);
+
         if (!newTask.IsAvailable(worldState))
         {
             Debug.Log("Task not available  " + newTask);

@@ -4,9 +4,12 @@ public class HTNAgentSensors : MonoBehaviour
 {
     public GameObject actor;
     public HTNPlanner planner;
+    protected Character character;
 
     void Start()
     {
+        actor = gameObject;
+        character = actor.GetComponent<Character>();
         Initialize(actor);
     }
 

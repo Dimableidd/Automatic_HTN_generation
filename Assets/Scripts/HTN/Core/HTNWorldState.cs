@@ -35,5 +35,25 @@ public class HTNWorldState
     {
         return new HTNWorldState { state = new Dictionary<string, object>(state) };
     }
+    public void Get()
+    {
+        foreach (var key in state.Keys)
+        {
+            // Проверяем тип значения и приводим его к строке
+            object value = state[key];
+            string valueString;
+
+            if (value is IFormattable)
+            {
+                valueString = ((IFormattable)value).ToString(null, System.Globalization.CultureInfo.InvariantCulture);
+            }
+            else
+            {
+                valueString = value.ToString();
+            }
+
+            Debug.Log($"Key: {key}, Value: {valueString}");
+        }
+    }
 }
 
