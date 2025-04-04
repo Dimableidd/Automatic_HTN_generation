@@ -205,13 +205,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20396274, y: 0.67705184, z: -0.20396274, w: 0.67705184}
-  m_LocalPosition: {x: -72.9, y: 53.1, z: 0.3}
+  m_LocalRotation: {x: 0.31661355, y: 0.6322625, z: -0.31661355, w: 0.6322625}
+  m_LocalPosition: {x: -51.36, y: 54.9, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 33.53, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 53.2, y: 90, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,7 +491,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 62451ff0767d6c94d8d47d9238e928fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -624,6 +624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabsTeams:
   - {fileID: 6322892919919115968, guid: 14f8368275f9aac46a1c1561b333df84, type: 3}
+  - {fileID: 6719704708116214441, guid: a2586ac3aa9a78c438e42206785e8a4d, type: 3}
   prefabTresures: {fileID: 1058223818535830210, guid: 4edcaf30ed8c6014d8b3c753ca1ff218, type: 3}
   targetScore: 1500
   maxRounds: 10

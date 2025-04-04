@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "Attack_Enemy", menuName = "HTNCompoundTask/Attack_Enemy")]
-public class Attack_Enemy : HTNCompoundTask
+[CreateAssetMenu(fileName = "Go_to_house", menuName = "HTNCompoundTask/Go_to_house")]
+public class Go_to_house : HTNCompoundTask
 {
 public override List<(Dictionary<string, object> PreConditions, List<HTNTask> Tasks)> GetMethods()
     {
@@ -11,12 +11,12 @@ public override List<(Dictionary<string, object> PreConditions, List<HTNTask> Ta
             (
                 new Dictionary<string, object>
                 {
-                    { "is_enemy_collider", true }
+                    { "is_a_treasures_on_character", true }
                 },
                 new List<HTNTask>
-                {   CreateInstance<Set_target_enemy>(),
-                    CreateInstance<Destination>(),
-                    CreateInstance<Attack>() }
+                {   CreateInstance<Set_House>(),
+                    CreateInstance<GoTo_House>()
+                }
             )
         };
     }

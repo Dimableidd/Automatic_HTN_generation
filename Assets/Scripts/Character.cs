@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine.UIElements;
 using UnityEngine.AI;
 using Unity.VisualScripting;
@@ -25,6 +26,7 @@ public class Character : MonoBehaviour
     public GameObject chestIconPrefab;
     public GameObject coinIconPrefab;
 
+    public event Action TargetAction;
     public Transform Target;
     public float UpdateSpeed = 0.1f;
     public float attackSpeed = 1f;
@@ -33,18 +35,17 @@ public class Character : MonoBehaviour
 
     public List<GameObject> enemy = new List<GameObject>();
 
+
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
     }
 
-    private void Update()
+    public void SetTarget(Transform target)
     {
-        if(enemy.Count != 0) 
-            foreach(GameObject obj in enemy)
-                if(obj == null) enemy.Remove(obj);
+        Target = target;
+        TargetAction?.Invoke();
     }
-
     public void AddEnemy(GameObject target)
     {
         enemy.Add(target);
@@ -92,13 +93,15 @@ public class Character : MonoBehaviour
 
     public void DeathCharacter()
     {
+        foreach (GameObject target in enemy)
+        {
+            target.GetComponent<Character>().enemy.Remove(gameObject);
+        }
         Destroy(gameObject);
     }
 
     public IEnumerator AttackTarget(Character target)
     {
-        // Выполняем атаку
-        Debug.Log("Attack!");
 
         if (target == null)
             yield return null;
@@ -124,6 +127,7 @@ public class Character : MonoBehaviour
                 boolChest = true;
                 Destroy(other.gameObject);
                 SpawnIcon(chestIconPrefab);
+                Physics.IgnoreCollision(GetComponent<Collider>(), other, true);
                 Debug.Log("Соприкоснулся с Chest");
             }
             // Проверяем, есть ли у объекта, с которым произошло столкновение, тег "Coin"
@@ -132,6 +136,7 @@ public class Character : MonoBehaviour
                 boolCoin = true;
                 Destroy(other.gameObject);
                 SpawnIcon(coinIconPrefab);
+                Physics.IgnoreCollision(GetComponent<Collider>(), other, true);
                 Debug.Log("Соприкоснулся с Coin");
             }
         }
@@ -151,7 +156,6 @@ public class Character : MonoBehaviour
                 Destroy(Treasure);
                 SpawnTrasures.Instance.DestroyCoin();
             }
-
             Debug.Log("Соприкоснулся с House");
         }
     }

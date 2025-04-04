@@ -1,25 +1,22 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "Attack", menuName = "HTNTask/Attack")]
-public class Attack : HTNTask
+[CreateAssetMenu(fileName = "GoTo_House", menuName = "HTNTask/GoTo_House")]
+public class GoTo_House : HTNTask
 {
     public override Dictionary<string, object> PreConditions() => new Dictionary<string, object>
     {
-        { "is_enemy_distance_attack", true }
+        { "is_a_treasures_on_character", true },
     };
 
     public override Dictionary<string, object> Effects() => new Dictionary<string, object>
     {
-        { "is_enemy_distance_attack", false }
+        { "is_a_treasures_on_character", false },
     };
 
     public override TaskResult Execute(Character character)
     {
-        if (character.CanAttack())
-        {   
-            character.Attack(character.Target.gameObject);
-        }
+        character.Agent.SetDestination(character.Target.position);
         return TaskResult.PROCESSING;
     }
 }

@@ -6,7 +6,8 @@ public class Destination : HTNTask
 {
     public override Dictionary<string, object> PreConditions() => new Dictionary<string, object>
     {
-        { "is_enemy_collider", true }
+        { "is_enemy_collider", true },
+        { "is_enemy_distance_attack", false }
     };
 
     public override Dictionary<string, object> Effects() => new Dictionary<string, object>
@@ -16,25 +17,16 @@ public class Destination : HTNTask
 
     public override TaskResult Execute(Character character)
     {
-        if(character.Target == null)
+        float distance = Vector3.Distance(character.gameObject.transform.position, character.Target.transform.position);
+        if (distance <= character.attackDist)
         {
-            character.Target = character.enemy[0].transform;
+            character.Agent.ResetPath();
+            return TaskResult.SUCCESS;
+        }
+        else 
+        {
             character.Agent.SetDestination(character.Target.position);
+            return TaskResult.PROCESSING;
         }
-        else
-        {
-            float distance = Vector3.Distance(character.gameObject.transform.position, character.Target.transform.position);
-            if (distance <= character.attackDist)
-            {
-                character.Agent.ResetPath();
-                return TaskResult.SUCCESS;
-            }
-            else 
-            {
-                character.Agent.SetDestination(character.Target.position);
-                return TaskResult.PROCESSING;
-            }
-        }
-        return TaskResult.FAILURE;
     }
 }
