@@ -17,6 +17,8 @@ public class Character : MonoBehaviour
     public bool boolChest = false;
     public bool boolCoin = false;
 
+    public Transform HomeBase => transform.parent.GetComponentInChildren<House>().transform;
+
     public bool isAttack = false;
     public float attackDist = 2f;
 
@@ -158,20 +160,45 @@ public class Character : MonoBehaviour
     }
 
     public void SpawnIcon(GameObject iconPrefab)
+    {
+        if (iconPrefab != null)
         {
-            if (iconPrefab != null)
+            // Создаём экземпляр иконки
+            GameObject iconInstance = Instantiate(iconPrefab, transform.position + Vector3.up * 2, Quaternion.identity);
+            Treasure = iconInstance;
+            // Получаем компонент FloatingIcon
+            FloatingIcon floatingIcon = iconInstance.GetComponent<FloatingIcon>();
+            if (floatingIcon != null)
             {
-                // Создаём экземпляр иконки
-                GameObject iconInstance = Instantiate(iconPrefab, transform.position + Vector3.up * 2, Quaternion.identity);
-                Treasure = iconInstance;
-                // Получаем компонент FloatingIcon
-                FloatingIcon floatingIcon = iconInstance.GetComponent<FloatingIcon>();
-                if (floatingIcon != null)
-                {
-                    // Устанавливаем цель для иконки
-                    floatingIcon.SetTarget(this.transform);
-                }
+                // Устанавливаем цель для иконки
+                floatingIcon.SetTarget(this.transform);
             }
         }
+    }
+        
+    public GameObject GetNearestTreasure()
+    {
+        var treasures = SpawnTrasures.Instance.GetTreasures();
+        float min = float.MaxValue;
+        GameObject nearest = null;
+        foreach (var t in treasures)
+        {
+            float d = Vector3.Distance(transform.position, t.transform.position);
+            if (d < min) { min = d; nearest = t; }
+        }
+        return nearest;
+    }
+
+    public GameObject GetNearestEnemy()
+    {
+        float min = float.MaxValue;
+        GameObject nearest = null;
+        foreach (var e in enemy)
+        {
+            float d = Vector3.Distance(transform.position, e.transform.position);
+            if (d < min) { min = d; nearest = e; }
+        }
+        return nearest;
+    }
 
 }
