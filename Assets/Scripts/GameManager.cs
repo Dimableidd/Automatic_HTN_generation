@@ -1,5 +1,6 @@
     using UnityEngine;
     using System.Collections.Generic;
+    using UnityEngine.UI;
 
     public class GameManager : MonoBehaviour
     {
@@ -13,6 +14,9 @@
 
         public int CountWinTeamOne = 0;
         public int CountWinTeamTwo = 0;
+
+        public Text comand_1;
+        public Text comand_2;
 
 
         // Контейнеры для команд и сокровищ

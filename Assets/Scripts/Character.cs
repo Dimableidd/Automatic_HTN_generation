@@ -128,7 +128,6 @@ public class Character : MonoBehaviour
                 Destroy(other.gameObject);
                 SpawnIcon(chestIconPrefab);
                 Physics.IgnoreCollision(GetComponent<Collider>(), other, true);
-                Debug.Log("Соприкоснулся с Chest");
             }
             // Проверяем, есть ли у объекта, с которым произошло столкновение, тег "Coin"
             else if (other.CompareTag("Coin"))
@@ -137,7 +136,6 @@ public class Character : MonoBehaviour
                 Destroy(other.gameObject);
                 SpawnIcon(coinIconPrefab);
                 Physics.IgnoreCollision(GetComponent<Collider>(), other, true);
-                Debug.Log("Соприкоснулся с Coin");
             }
         }
         else if (other.CompareTag("House") && other.gameObject.GetComponent<House>().teamName == team)
@@ -156,7 +154,6 @@ public class Character : MonoBehaviour
                 Destroy(Treasure);
                 SpawnTrasures.Instance.DestroyCoin();
             }
-            Debug.Log("Соприкоснулся с House");
         }
     }
 

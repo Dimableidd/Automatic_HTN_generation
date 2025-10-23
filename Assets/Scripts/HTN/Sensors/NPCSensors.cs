@@ -49,7 +49,7 @@ public class NPCSensors : HTNAgentSensors
     public void GetTreasuresOnCharacter()
     {
         if(character.Treasure != null) 
-            SetState("is_a_treasures_on_character", true, false);
+            SetState("is_a_treasures_on_character", true);
         else 
             SetState("is_a_treasures_on_character", false);
     }

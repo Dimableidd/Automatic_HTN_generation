@@ -11,11 +11,17 @@ public class Team : MonoBehaviour
     public void AddScore(int points)
     {
         score += points;
+        if(teamName == 0)
+            GameManager.Instance.comand_1.text = $"{score}";
+        else
+            GameManager.Instance.comand_2.text = $"{score}";
     }
 
     public void Reset()
     {
         score = 0;
+        GameManager.Instance.comand_1.text = $"{0}";
+        GameManager.Instance.comand_2.text = $"{0}";
     }
 
     void Update()

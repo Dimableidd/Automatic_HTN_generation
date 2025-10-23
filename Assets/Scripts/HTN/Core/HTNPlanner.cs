@@ -162,7 +162,6 @@ public class HTNPlanner : MonoBehaviour
 
     private void InitializeWorkingState()
     {
-        Debug.Log(worldState);
         stateStack.Add(worldState.Duplicate());
     }
 
