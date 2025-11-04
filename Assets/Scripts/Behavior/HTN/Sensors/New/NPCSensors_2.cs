@@ -9,7 +9,6 @@ public class NPCSensors_2 : HTNAgentSensors
         SetState("is_in_attack_range", false, false);
         SetState("treasure_exists", false, false);
         SetState("has_treasure", false, false);
-        SetState("at_base", false, false);
 
     }
 

@@ -9,7 +9,7 @@
         public List<GameObject> prefabsTeams = new List<GameObject>();
         public GameObject prefabTresures;
         public int targetScore = 1500;
-        public int maxRounds = 11; // Максимальное количество раундов
+        //public int maxRounds = 11; // Максимальное количество раундов
         public int currentRound = 1;
 
         public int CountWinTeamOne = 0;
@@ -35,7 +35,7 @@
 
         void Update()
         {
-            CheckEnd();
+            //CheckEnd();
         }
 
     public void StartGame()
@@ -69,7 +69,7 @@
             }
         }
 
-        public void CheckEnd()
+        /*public void CheckEnd()
         {
             // Логика для завершения, если достигнуто максимальное количество раундов
             if (currentRound >= maxRounds && instantiatedTeams != null && instantiatedTreasures)
@@ -97,7 +97,7 @@
 
                 EndGame();
             }
-        }
+        }*/
 
         public void ResetGame()
         {
@@ -121,7 +121,7 @@
             StartGame();
         }
 
-        public void EndGame()
+        /*public void EndGame()
         {
             // Сброс сокровищ
             Destroy(instantiatedTreasures);
@@ -131,7 +131,7 @@
                 Destroy(team);
             }
 
-        }
+        }*/
 
 
     }

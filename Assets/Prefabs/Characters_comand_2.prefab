@@ -172,6 +172,18 @@ PrefabInstance:
       propertyPath: team
       value: 
       objectReference: {fileID: 5960217379412348645}
+    - target: {fileID: 5173169612614249652, guid: e0b6ce1a2f0ed9e4aa8019735689a504, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173169612614249652, guid: e0b6ce1a2f0ed9e4aa8019735689a504, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173169612614249652, guid: e0b6ce1a2f0ed9e4aa8019735689a504, type: 3}
+      propertyPath: m_Size.z
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7393988202396919324, guid: e0b6ce1a2f0ed9e4aa8019735689a504, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

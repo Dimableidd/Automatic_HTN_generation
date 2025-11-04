@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5173169612614249652}
   - component: {fileID: 8438672082127816229}
   - component: {fileID: 4365269861303691444}
+  - component: {fileID: -3629045154077473872}
   m_Layer: 2
   m_Name: House_1
   m_TagString: House
@@ -144,3 +145,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: {fileID: 0}
   teamName: 1
+--- !u!114 &-3629045154077473872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2835695284052787453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adfb4905ac77b364fa9920807a8bf7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

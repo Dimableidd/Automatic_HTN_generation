@@ -18,6 +18,7 @@ public class Attack_2 : HTNTask
     {
         if (character.CanAttack())
         {
+            if(character.Target != null)
             character.Attack(character.Target.gameObject);
             //return TaskResult.SUCCESS;
         }

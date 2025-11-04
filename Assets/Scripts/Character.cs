@@ -119,7 +119,7 @@ public class Character : MonoBehaviour
     }
 
 
-    public void OnTriggerEnter(Collider other)
+    /*public void OnTriggerEnter(Collider other)
     {
         if (!boolChest && !boolCoin)
         {
@@ -157,7 +157,7 @@ public class Character : MonoBehaviour
                 SpawnTrasures.Instance.DestroyCoin();
             }
         }
-    }
+    }*/
 
     public void SpawnIcon(GameObject iconPrefab)
     {
