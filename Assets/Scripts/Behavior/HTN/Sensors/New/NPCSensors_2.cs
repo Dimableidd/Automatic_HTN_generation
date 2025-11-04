@@ -48,7 +48,7 @@ public class NPCSensors_2 : HTNAgentSensors
 
     private void UpdateHasTreasure()
     {
-        bool has = character.Treasure != null;
+        bool has = character.boolChest || character.boolCoin;
         SetState("has_treasure", has, true);
     }
 

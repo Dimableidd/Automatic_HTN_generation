@@ -10,40 +10,15 @@ public class Team : MonoBehaviour
 
     public void AddScore(int points)
     {
-        score += points;
         if(teamName == 0)
-            GameManager.Instance.comand_1.text = $"{score}";
-        else
-            GameManager.Instance.comand_2.text = $"{score}";
-    }
-
-    public void Reset()
-    {
-        score = 0;
-        GameManager.Instance.comand_1.text = $"{0}";
-        GameManager.Instance.comand_2.text = $"{0}";
-    }
-
-    void Update()
-    {
-
-        if (score >= GameManager.Instance.targetScore)
         {
-            if(teamName == 0)
-            {
-                GameManager.Instance.CountWinTeamOne += 1;
-                Reset();
-                GameManager.Instance.ResetGame();
-                return;
-            }
-            else if(teamName == 1)
-            {
-                GameManager.Instance.CountWinTeamTwo += 1;
-                Reset();
-                GameManager.Instance.ResetGame();
-                return;
-            }
-
+            GameManager.Instance.Score_team_1 += points;
+            GameManager.Instance.comand_1.text = $"{GameManager.Instance.Score_team_1}";
+        }
+        else
+        {
+            GameManager.Instance.Score_team_2 += points;
+            GameManager.Instance.comand_2.text = $"{GameManager.Instance.Score_team_2}";
         }
     }
 

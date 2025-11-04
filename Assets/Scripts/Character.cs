@@ -8,6 +8,7 @@ using Unity.VisualScripting;
 
 public class Character : MonoBehaviour
 {
+    [SerializeField] public int maxHealth = 20;
     [SerializeField] public int currentHealth = 20;
     [SerializeField] public int Damage = 1;
 
@@ -75,6 +76,11 @@ public class Character : MonoBehaviour
         currentHealth -= Damage;
         if(currentHealth <= 0)
         {
+            if(GameManager.Instance.learning)
+            {
+                if(GetComponent<RL_Agent>())
+                    GetComponent<RL_Agent>().AddRewardDeath();
+            }
             gameObject.GetComponentInParent<Team>().StartDestroyCharacter();
             if(boolChest)
             {

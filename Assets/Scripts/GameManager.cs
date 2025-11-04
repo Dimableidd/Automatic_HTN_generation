@@ -8,7 +8,10 @@
         //public List<Team> teams = new List<Team>();
         public List<GameObject> prefabsTeams = new List<GameObject>();
         public GameObject prefabTresures;
+        public bool learning = false;
         public int targetScore = 1500;
+        public int Score_team_1 = 0;
+        public int Score_team_2 = 0;
         //public int maxRounds = 11; // Максимальное количество раундов
         public int currentRound = 1;
 
@@ -30,15 +33,17 @@
 
         public void Start()
         {
-            StartGame();
+            if(!learning)
+                StartGame();
         }
 
         void Update()
         {
             //CheckEnd();
+            //CheckEndEpisode();
         }
 
-    public void StartGame()
+        public void StartGame()
         {
 
             // Создание сокровищ
@@ -58,7 +63,7 @@
                 {
                     // Создаем экземпляр команды
                     GameObject teamInstance = Instantiate(teamPrefab, Vector3.zero, Quaternion.identity);
-                    
+
                     // Добавляем в список для дальнейшего управления
                     instantiatedTeams.Add(teamInstance);
                 }
@@ -68,6 +73,25 @@
                 }
             }
         }
+        
+        public void CheckEndEpisode()
+        {
+            if(!learning)
+            {
+                if (Score_team_1 >= targetScore)
+                {
+                    CountWinTeamOne += 1;
+                    ResetGame();
+                }
+                else if (Score_team_2 >= targetScore)
+                {
+                    CountWinTeamTwo += 1;
+                    ResetGame();
+                }
+            }
+
+        }
+    
 
         /*public void CheckEnd()
         {
@@ -115,8 +139,13 @@
 
             GameObject[] iconsArray = GameObject.FindGameObjectsWithTag("Icon");
 
-            foreach(GameObject obj in iconsArray)
+            foreach (GameObject obj in iconsArray)
                 Destroy(obj);
+
+            Score_team_1 = 0;
+            Score_team_2 = 0;
+            comand_1.text = $"{0}";
+            comand_2.text = $"{0}";
 
             StartGame();
         }

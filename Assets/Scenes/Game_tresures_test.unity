@@ -834,11 +834,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2520536236518274348, guid: 4edcaf30ed8c6014d8b3c753ca1ff218, type: 3}
   m_PrefabInstance: {fileID: 1625525222930133464}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1433910281 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4081245044596757891, guid: 4edcaf30ed8c6014d8b3c753ca1ff218, type: 3}
-  m_PrefabInstance: {fileID: 1625525222930133464}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1630375637
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,11 +879,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabsTeams:
-  - {fileID: 6322892919919115968, guid: 6e8736fc9576afa4c941ca670cce5117, type: 3}
+  - {fileID: 6322892919919115968, guid: a50b5ba5436d80345af527625152c3b8, type: 3}
   - {fileID: 6719704708116214441, guid: a2586ac3aa9a78c438e42206785e8a4d, type: 3}
   prefabTresures: {fileID: 1058223818535830210, guid: 4edcaf30ed8c6014d8b3c753ca1ff218, type: 3}
+  learning: 1
   targetScore: 1500
-  maxRounds: 10
+  Score_team_1: 0
+  Score_team_2: 0
   currentRound: 1
   CountWinTeamOne: 0
   CountWinTeamTwo: 0
@@ -1164,7 +1161,7 @@ PrefabInstance:
     - target: {fileID: 6681833979041149005, guid: ede1cafa2c83f5f4cbf7095e3b0c5060, type: 3}
       propertyPath: Target
       value: 
-      objectReference: {fileID: 1433910281}
+      objectReference: {fileID: 0}
     - target: {fileID: 8914368548004260890, guid: ede1cafa2c83f5f4cbf7095e3b0c5060, type: 3}
       propertyPath: m_LocalPosition.x
       value: 63.06989

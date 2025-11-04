@@ -11,6 +11,11 @@ public class TriggerChest : MonoBehaviour
             {
                 player.boolChest = true;
                 player.SpawnIcon(player.chestIconPrefab);
+                if(GameManager.Instance.learning)
+                {
+                    if(other.GetComponent<RL_Agent>())
+                        other.GetComponent<RL_Agent>().AddRewardUpTreashure();
+                }
                 Destroy(gameObject);
             }
         }

@@ -11,6 +11,11 @@ public class TriggerCoin : MonoBehaviour
             {
                 player.boolCoin = true;
                 player.SpawnIcon(player.coinIconPrefab);
+                if(GameManager.Instance.learning)
+                {
+                    if(other.GetComponent<RL_Agent>())
+                        other.GetComponent<RL_Agent>().AddRewardUpTreashure();
+                }
                 Destroy(gameObject);
             }
         }
