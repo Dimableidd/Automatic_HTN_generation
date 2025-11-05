@@ -70,7 +70,9 @@ public class RL_Agent : Agent
                 break;
 
             case 1: // Go to treasure
-                MoveTo(GetNearestTreasure().transform);
+                var treasure = GetNearestTreasure();
+                if (treasure != null)
+                    MoveTo(treasure.transform);
                 break;
 
             case 2: // Go to base
@@ -78,7 +80,9 @@ public class RL_Agent : Agent
                 break;
 
             case 3: // Go to enemy
-                MoveTo(GetNearestEnemy().transform);
+                var enemy = GetNearestEnemy();
+                if (enemy != null)
+                    MoveTo(enemy.transform);
                 break;
 
             case 4: // Attack
@@ -194,6 +198,12 @@ public class RL_Agent : Agent
             if (d < min) { min = d; nearest = e; }
         }
         return nearest;
+    }
+
+    public override void Heuristic(in ActionBuffers actionsOut)
+    {
+        var discreteActions = actionsOut.DiscreteActions;
+        discreteActions[0] = Random.Range(0, 5);
     }
 
 }

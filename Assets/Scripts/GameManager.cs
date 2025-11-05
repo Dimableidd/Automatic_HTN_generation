@@ -33,8 +33,7 @@
 
         public void Start()
         {
-            if(!learning)
-                StartGame();
+            StartGame();
         }
 
         void Update()
@@ -124,7 +123,7 @@
         }*/
 
         public void ResetGame()
-        {
+    {
             // Сброс сокровищ
             Destroy(instantiatedTreasures);
             // Сброс персонажей
