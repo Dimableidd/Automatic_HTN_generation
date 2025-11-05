@@ -474,7 +474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &753464057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,8 +889,6 @@ MonoBehaviour:
   currentRound: 1
   CountWinTeamOne: 0
   CountWinTeamTwo: 0
-  comand_1: {fileID: 2110839086}
-  comand_2: {fileID: 250875681}
   instantiatedTeams: []
   instantiatedTreasures: {fileID: 0}
 --- !u!4 &1925288985 stripped

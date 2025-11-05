@@ -17,6 +17,7 @@ public class Character : MonoBehaviour
     public GameObject Treasure;
     public bool boolChest = false;
     public bool boolCoin = false;
+    public Vector3 spawnPosition;
 
     public Transform HomeBase => transform.parent.GetComponentInChildren<House>().transform;
 
@@ -81,7 +82,7 @@ public class Character : MonoBehaviour
                 if(GetComponent<RL_Agent>())
                     GetComponent<RL_Agent>().AddRewardDeath();
             }
-            gameObject.GetComponentInParent<Team>().StartDestroyCharacter();
+            gameObject.GetComponentInParent<Team>().StartDestroyCharacter(this);
             if(boolChest)
             {
                 boolChest = false;
@@ -105,7 +106,8 @@ public class Character : MonoBehaviour
         {
             target.GetComponent<Character>().enemy.Remove(gameObject);
         }
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public IEnumerator AttackTarget(Character target)

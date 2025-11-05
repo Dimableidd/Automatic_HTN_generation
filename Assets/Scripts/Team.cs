@@ -13,35 +13,34 @@ public class Team : MonoBehaviour
         if(teamName == 0)
         {
             GameManager.Instance.Score_team_1 += points;
-            GameManager.Instance.comand_1.text = $"{GameManager.Instance.Score_team_1}";
+            //GameManager.Instance.comand_1.text = $"{GameManager.Instance.Score_team_1}";
         }
         else
         {
             GameManager.Instance.Score_team_2 += points;
-            GameManager.Instance.comand_2.text = $"{GameManager.Instance.Score_team_2}";
+            //GameManager.Instance.comand_2.text = $"{GameManager.Instance.Score_team_2}";
         }
     }
 
-    public void StartDestroyCharacter()
+    public void StartDestroyCharacter(Character character)
     {
-        StartCoroutine(DestroyAndRespawnCharacter());
+        StartCoroutine(DestroyAndRespawnCharacter(character));
     }
 
-    public IEnumerator DestroyAndRespawnCharacter()
+    public IEnumerator DestroyAndRespawnCharacter(Character character)
     {
+        yield return new WaitForSeconds(5f);
 
-        yield return new WaitForSeconds(5f); // Ждем 5 секунд
-
-
-        if (character != null)
-        {
-            Vector3 spawnPosition = new Vector3();
-            if (teamName == 0)
-                spawnPosition = new Vector3(0f, 1f, -40f);
-            else if (teamName == 1)
-                spawnPosition = new Vector3(0f, 1f, 40f);
-            
-            Instantiate(character, spawnPosition, Quaternion.identity, transform);
-        }
+        character.currentHealth = character.maxHealth;
+        character.transform.position = character.spawnPosition;
+        character.boolChest = false;
+        character.boolCoin = false;
+        character.enemy.Clear();
+        if (character.Treasure != null)
+            Destroy(character.Treasure);
+        character.Treasure = null;        
+        character.Target = null;
+        character.gameObject.SetActive(true);
+        character.Agent.ResetPath();
     }
 }

@@ -14,7 +14,6 @@ public class SensorCollider : MonoBehaviour
         if(other.CompareTag("Chest")) return;
         if (other.gameObject.CompareTag("Player") && other.gameObject.GetComponent<Character>().team != character.team)
         {
-            Debug.Log("Соприкоснулся с игроком");
             character.AddEnemy(other.gameObject);
         }
     }

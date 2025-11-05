@@ -26,23 +26,25 @@ public class RL_Agent : Agent
         team = gameObject.GetComponentInParent<Team>();
     }
 
-    public void Update()
-    {
-        if (GameManager.Instance.Score_team_1 >= GameManager.Instance.targetScore)
-        {
-            AddReward(winReward);
-            EndEpisode();
-        }
-        else if (GameManager.Instance.Score_team_2 >= GameManager.Instance.targetScore)
-        {
-            AddReward(loserReward);
-            EndEpisode();
-        }
-    }
-
     public override void OnEpisodeBegin()
     {
-        GameManager.Instance.ResetGame();
+
+        if (GameManager.Instance.Score_team_1 >= GameManager.Instance.targetScore || GameManager.Instance.Score_team_2 >= GameManager.Instance.targetScore)
+        {
+            Team teamObj = team.GetComponent<Team>();
+            gameObject.SetActive(true);
+            character.currentHealth = character.maxHealth;
+            transform.position = character.spawnPosition;
+            character.Agent.ResetPath();
+            character.boolChest = false;
+            character.boolCoin = false;
+            character.enemy.Clear();
+            if (character.Treasure != null)
+                Destroy(character.Treasure);
+            character.Treasure = null;        
+            character.Target = null;
+        }
+
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -89,7 +91,6 @@ public class RL_Agent : Agent
                 TryAttack();
                 break;
         }
-
         AddReward(reward);
     }
 
