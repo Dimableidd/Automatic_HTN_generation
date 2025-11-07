@@ -40,7 +40,7 @@ public class NPCSensors : HTNAgentSensors
     }
     public void GetTreasures()
     {
-        if(SpawnTrasures.Instance.GetTreasures().Count != 0) 
+        if(character.spawnTrasures.GetTreasures().Count != 0) 
             SetState("is_a_treasures", true);
         else 
             SetState("is_a_treasures", false, false);

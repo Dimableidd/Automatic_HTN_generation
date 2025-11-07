@@ -14,6 +14,9 @@ public class Character : MonoBehaviour
 
     [SerializeField] public int team;
 
+    public GameManager gameManager;
+    public SpawnTrasures spawnTrasures;
+
     public GameObject Treasure;
     public bool boolChest = false;
     public bool boolCoin = false;
@@ -43,6 +46,8 @@ public class Character : MonoBehaviour
     private void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
+        gameManager = transform.parent.GetComponent<Team>().gameManager;
+        spawnTrasures = transform.parent.GetComponent<Team>().spawnTrasures;
     }
 
     public void SetTarget(Transform target)
@@ -77,7 +82,7 @@ public class Character : MonoBehaviour
         currentHealth -= Damage;
         if(currentHealth <= 0)
         {
-            if(GameManager.Instance.learning)
+            if(gameManager.learning)
             {
                 if(GetComponent<RL_Agent>())
                     GetComponent<RL_Agent>().AddRewardDeath();
@@ -87,13 +92,13 @@ public class Character : MonoBehaviour
             {
                 boolChest = false;
                 Destroy(Treasure);
-                SpawnTrasures.Instance.DropChest(transform);
+                spawnTrasures.DropChest(transform);
             }
             if(boolCoin)
             {
                 boolCoin = false;
                 Destroy(Treasure);
-                SpawnTrasures.Instance.DropCoin(transform);
+                spawnTrasures.DropCoin(transform);
             }
             DeathCharacter();
         }
@@ -186,7 +191,7 @@ public class Character : MonoBehaviour
         
     public GameObject GetNearestTreasure()
     {
-        var treasures = SpawnTrasures.Instance.GetTreasures();
+        var treasures = spawnTrasures.GetTreasures();
         float min = float.MaxValue;
         GameObject nearest = null;
         foreach (var t in treasures)

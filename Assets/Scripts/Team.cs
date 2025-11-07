@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Team : MonoBehaviour
 {
+    public GameManager gameManager;
+    public SpawnTrasures spawnTrasures;
     public int teamName;
     public GameObject character;
     public int score = 0;
@@ -12,13 +14,13 @@ public class Team : MonoBehaviour
     {
         if(teamName == 0)
         {
-            GameManager.Instance.Score_team_1 += points;
-            //GameManager.Instance.comand_1.text = $"{GameManager.Instance.Score_team_1}";
+            gameManager.Score_team_1 += points;
+            //gameManager.comand_1.text = $"{gameManager.Score_team_1}";
         }
         else
         {
-            GameManager.Instance.Score_team_2 += points;
-            //GameManager.Instance.comand_2.text = $"{GameManager.Instance.Score_team_2}";
+            gameManager.Score_team_2 += points;
+            //gameManager.comand_2.text = $"{gameManager.Score_team_2}";
         }
     }
 
@@ -32,7 +34,7 @@ public class Team : MonoBehaviour
         yield return new WaitForSeconds(5f);
 
         character.currentHealth = character.maxHealth;
-        character.transform.position = character.spawnPosition;
+        character.transform.localPosition = character.spawnPosition;
         character.boolChest = false;
         character.boolCoin = false;
         character.enemy.Clear();

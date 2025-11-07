@@ -14,7 +14,7 @@ public class Rule_based_AI_Nearest : MonoBehaviour
 
     public void Start()
     {
-        treasures = SpawnTrasures.Instance.GetTreasures();
+        treasures = character.spawnTrasures.GetTreasures();
     }
 
     public void Update()
@@ -58,7 +58,7 @@ public class Rule_based_AI_Nearest : MonoBehaviour
         {
             if (character.Target == null || !treasures.Contains(character.Target.gameObject))
             {
-                treasures = SpawnTrasures.Instance.GetTreasures();
+                treasures = character.spawnTrasures.GetTreasures();
                 if (treasures.Count > 0)
                 {
                     GameObject nearest = GetNearestTreasure();

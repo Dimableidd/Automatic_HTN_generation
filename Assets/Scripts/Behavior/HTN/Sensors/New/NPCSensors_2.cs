@@ -42,7 +42,7 @@ public class NPCSensors_2 : HTNAgentSensors
 
     private void UpdateTreasureAvailability()
     {
-        bool exists = SpawnTrasures.Instance != null && SpawnTrasures.Instance.GetTreasures().Count > 0;
+        bool exists = character.spawnTrasures != null && character.spawnTrasures.GetTreasures().Count > 0;
         SetState("treasure_exists", exists, true);
     }
 

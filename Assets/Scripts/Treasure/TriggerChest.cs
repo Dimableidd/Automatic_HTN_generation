@@ -1,21 +1,36 @@
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class TriggerChest : MonoBehaviour
 {
-    public void OnTriggerEnter(Collider other)
+    public GameManager gameManager;
+    private bool _taken = false;
+    public void Awake()
     {
-        if(other.CompareTag("Player"))
+        gameManager = transform.parent.GetComponent<SpawnTrasures>().gameManager;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (_taken) return;
+
+        if (other.CompareTag("Player"))
         {
             Character player = other.GetComponent<Character>();
-            if (!player.boolChest && !player.boolCoin)
+            if (player != null && !player.boolChest && !player.boolCoin)
             {
+                _taken = true;
+
                 player.boolChest = true;
                 player.SpawnIcon(player.chestIconPrefab);
-                if(GameManager.Instance.learning)
+
+                if (gameManager.learning)
                 {
-                    if(other.GetComponent<RL_Agent>())
-                        other.GetComponent<RL_Agent>().AddRewardUpTreashure();
+                    RL_Agent agent = other.GetComponent<RL_Agent>();
+                    if (agent != null)
+                        agent.AddRewardUpTreashure();
                 }
+
                 Destroy(gameObject);
             }
         }

@@ -177,6 +177,8 @@ MonoBehaviour:
   currentHealth: 20
   Damage: 2
   team: 0
+  gameManager: {fileID: 0}
+  spawnTrasures: {fileID: 0}
   Treasure: {fileID: 0}
   boolChest: 0
   boolCoin: 0
@@ -311,7 +313,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 5022602860645237092, guid: e1cf86a4430d887439d08a963580ffa5, type: 3}
   m_InferenceDevice: 0
-  m_BehaviorType: 2
+  m_BehaviorType: 0
   m_BehaviorName: RL_Agent
   TeamId: 0
   m_UseChildSensors: 1

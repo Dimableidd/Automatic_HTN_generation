@@ -2,6 +2,14 @@ using UnityEngine;
 
 public class TriggerHouse : MonoBehaviour
 {
+    public GameManager gameManager;
+    public SpawnTrasures spawnTrasures;
+
+    public void Awake()
+    {
+        spawnTrasures = transform.parent.GetComponent<Team>().spawnTrasures;
+        gameManager = transform.parent.GetComponent<Team>().gameManager;
+    }
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -14,8 +22,8 @@ public class TriggerHouse : MonoBehaviour
                     player.GetComponentInParent<Team>().AddScore(250);
                     player.boolChest = false;
                     Destroy(player.Treasure);
-                    SpawnTrasures.Instance.DestroyChest();
-                    if(GameManager.Instance.learning)
+                    spawnTrasures.DestroyChest();
+                    if(gameManager.learning)
                     {
                         if(other.GetComponent<RL_Agent>())
                             other.GetComponent<RL_Agent>().AddRewardDownTreashure();
@@ -26,8 +34,8 @@ public class TriggerHouse : MonoBehaviour
                     player.GetComponentInParent<Team>().AddScore(250);
                     player.boolCoin = false;
                     Destroy(player.Treasure);
-                    SpawnTrasures.Instance.DestroyCoin();
-                    if(GameManager.Instance.learning)
+                    spawnTrasures.DestroyCoin();
+                    if(gameManager.learning)
                     {
                         if(other.GetComponent<RL_Agent>())
                             other.GetComponent<RL_Agent>().AddRewardDownTreashure();

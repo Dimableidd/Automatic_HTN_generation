@@ -1,11 +1,10 @@
-    using UnityEngine;
-    using System.Collections.Generic;
-    using UnityEngine.UI;
+using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEditor;
 
 public class GameManager : MonoBehaviour
     {
-        public static GameManager Instance;
         //public List<Team> teams = new List<Team>();
         public List<GameObject> prefabsTeams = new List<GameObject>();
         public GameObject prefabTresures;
@@ -26,31 +25,6 @@ public class GameManager : MonoBehaviour
         // Контейнеры для команд и сокровищ
         public List<GameObject> instantiatedTeams = new List<GameObject>();
         public GameObject instantiatedTreasures;
-
-        private void Awake()
-        {
-            Instance = this;
-        }
-
-        public void Start()
-        {
-            
-            if (prefabTresures != null)
-            {
-                instantiatedTreasures = Instantiate(prefabTresures, Vector3.zero, Quaternion.identity);
-            }
-
-            foreach (GameObject teamPrefab in prefabsTeams)
-            {
-                if (teamPrefab != null)
-                {
-                    GameObject teamInstance = Instantiate(teamPrefab, Vector3.zero, Quaternion.identity);
-
-                    instantiatedTeams.Add(teamInstance);
-                }
-            }
-            
-        }
 
         void Update()
         {
@@ -105,12 +79,7 @@ public class GameManager : MonoBehaviour
 
         public void ResetGame(bool winTeam_1)
         {
-            Destroy(instantiatedTreasures);
-
-            if (prefabTresures != null)
-            {
-                instantiatedTreasures = Instantiate(prefabTresures, Vector3.zero, Quaternion.identity);
-            }
+            instantiatedTreasures.GetComponent<SpawnTrasures>().DestroyAll();
             
             foreach(GameObject team in instantiatedTeams)
             {

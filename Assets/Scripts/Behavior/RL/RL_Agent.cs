@@ -28,13 +28,11 @@ public class RL_Agent : Agent
 
     public override void OnEpisodeBegin()
     {
-
-        if (GameManager.Instance.Score_team_1 >= GameManager.Instance.targetScore || GameManager.Instance.Score_team_2 >= GameManager.Instance.targetScore)
+        if (character.gameManager.Score_team_1 >= character.gameManager.targetScore || character.gameManager.Score_team_2 >= character.gameManager.targetScore)
         {
             Team teamObj = team.GetComponent<Team>();
-            gameObject.SetActive(true);
             character.currentHealth = character.maxHealth;
-            transform.position = character.spawnPosition;
+            transform.localPosition = character.spawnPosition;
             character.Agent.ResetPath();
             character.boolChest = false;
             character.boolCoin = false;
@@ -116,7 +114,7 @@ public class RL_Agent : Agent
 
     private bool HasTreasureOnMap()
     {
-        return SpawnTrasures.Instance.GetTreasures().Count > 0;
+        return character.spawnTrasures.GetTreasures().Count > 0;
     }
 
     private bool IsEnemyVisible()
@@ -163,6 +161,7 @@ public class RL_Agent : Agent
     {
         if (target == null) return;
         character.Agent.SetDestination(target.position);
+        character.Target = target;
     }
 
     private void TryAttack()
@@ -178,7 +177,7 @@ public class RL_Agent : Agent
 
     private GameObject GetNearestTreasure()
     {
-        var treasures = SpawnTrasures.Instance.GetTreasures();
+        var treasures = character.spawnTrasures.GetTreasures();
         float min = float.MaxValue;
         GameObject nearest = null;
         foreach (var t in treasures)

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class SpawnTrasures : MonoBehaviour
 {
-    public static SpawnTrasures Instance;
+    public GameManager gameManager;
 
     [Header("Prefabs")]
     public GameObject chestPrefab;
@@ -18,11 +18,6 @@ public class SpawnTrasures : MonoBehaviour
     public float coinSpawnRadius = 5f;
 
     public List<GameObject> treasures = new List<GameObject>();
-
-    void Awake()
-    {
-        Instance = this;
-    }
 
     public void Start()
     {
@@ -49,10 +44,44 @@ public class SpawnTrasures : MonoBehaviour
         treasures.Clear();
         foreach (Transform child in transform)
         {
-            if(child.CompareTag("Coin") || child.CompareTag("Chest"))
+            if (child.CompareTag("Coin") || child.CompareTag("Chest"))
                 treasures.Add(child.gameObject);
         }
         return treasures;
+    }
+
+    public void DestroyAll()
+    {
+        StopAllCoroutines();
+        
+        foreach (GameObject treasure in treasures)
+        {
+            if (treasure != null)
+            {
+                Destroy(treasure);
+            }
+        }
+        treasures.Clear();
+
+        Vector3 randomOffset = Random.insideUnitSphere * chestSpawnRadius;
+        randomOffset.y = 0.5f;
+        Vector3 spawnPosition = chestSpawnPoint.position + randomOffset;
+
+        Instantiate(chestPrefab, spawnPosition, Quaternion.identity, transform);
+
+        for(int i = 0; i < 2; i++)
+        {
+            Transform basePoint = Random.value < 0.5f ? coinSpawnPointA : coinSpawnPointB;
+
+            Vector3 randomOffset1 = Random.insideUnitSphere * coinSpawnRadius;
+            randomOffset1.y = 0.5f;
+
+            Vector3 spawnPosition1 = basePoint.position + randomOffset1;
+            Instantiate(coinPrefab, spawnPosition1, Quaternion.identity, transform);
+        }
+
+
+
     }
 
     public void DestroyChest()

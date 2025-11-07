@@ -17,7 +17,7 @@ public class Choice : HTNTask
 
     public override TaskResult Execute(Character character)
     {
-        List<GameObject> treasures = SpawnTrasures.Instance.GetTreasures();
+        List<GameObject> treasures = character.spawnTrasures.GetTreasures();
         character.SetTarget(treasures[Random.Range(0,treasures.Count)].transform);
         return TaskResult.SUCCESS;
     }
