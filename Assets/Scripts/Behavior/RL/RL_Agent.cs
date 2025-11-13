@@ -1,4 +1,5 @@
-using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
@@ -8,10 +9,13 @@ public class RL_Agent : Agent
 {
 
     [Header("Links")]
-    public Character character => gameObject.GetComponent<Character>();
+    public Character character;
     public Transform homeBase;
     public Team team;
+    private Vector3 spawnPosition;
 
+
+    [Header("Rewards (для логов)")]
     public float stepPenalty = -0.001f;
     public float attackReward = 0.05f;
     public float treasureRewardUp = 1f;
@@ -20,28 +24,62 @@ public class RL_Agent : Agent
     public float loserReward = -5.0f;
     public float deathPenalty = -1.0f;
 
-    public void Start()
+    [Header("Logging")]
+    [Tooltip("Включить логирование (автоматически включается при инференсе)")]
+    public bool forceLogging = false;
+
+    private bool loggingEnabled = false;
+    private string logPath;
+    private StringBuilder logBuffer = new StringBuilder();
+    private int stepCount = 0;
+    private int episodeCount = 0;
+
+    public override void Initialize()
     {
+        character = GetComponent<Character>();
+        team = GetComponentInParent<Team>();
         homeBase = character.HomeBase;
-        team = gameObject.GetComponentInParent<Team>();
+        spawnPosition = transform.position;
+
+        bool trainingMode = Academy.Instance.IsCommunicatorOn;
+        loggingEnabled = !trainingMode || forceLogging;
+
+        if (loggingEnabled)
+        {
+            string logsFolder = Path.Combine(Application.dataPath, "Logs");
+            if (!Directory.Exists(logsFolder))
+                Directory.CreateDirectory(logsFolder);
+
+            string agentId = GetInstanceID().ToString();
+            logPath = Path.Combine(logsFolder, $"Agent_{agentId}.csv");
+
+            File.WriteAllText(logPath,
+                "agent_id;episode;step;action;reward;hasTreasure;enemyVisible;enemyInRange;treasureOnMap;distTreasure;distEnemy;distBase;health\n");
+
+            Debug.Log($"<color=cyan>[RL_Agent]</color> Logging ENABLED for Agent {agentId}");
+        }
+        else
+        {
+            Debug.Log("<color=yellow>[RL_Agent]</color> Training mode detected — logging disabled");
+        }
     }
 
     public override void OnEpisodeBegin()
     {
-        if (character.gameManager.Score_team_1 >= character.gameManager.targetScore || character.gameManager.Score_team_2 >= character.gameManager.targetScore)
-        {
-            Team teamObj = team.GetComponent<Team>();
-            character.currentHealth = character.maxHealth;
-            transform.localPosition = character.spawnPosition;
-            character.Agent.ResetPath();
-            character.boolChest = false;
-            character.boolCoin = false;
-            character.enemy.Clear();
-            if (character.Treasure != null)
-                Destroy(character.Treasure);
-            character.Treasure = null;        
-            character.Target = null;
-        }
+        episodeCount++;
+        stepCount = 0;
+
+        Team teamObj = team.GetComponent<Team>();
+        character.currentHealth = character.maxHealth;
+        transform.localPosition = character.spawnPosition;
+        character.Agent.ResetPath();
+        character.boolChest = false;
+        character.boolCoin = false;
+        character.enemy.Clear();
+        if (character.Treasure != null)
+            Destroy(character.Treasure);
+        character.Treasure = null;        
+        character.Target = null;
 
     }
 
@@ -61,7 +99,7 @@ public class RL_Agent : Agent
     public override void OnActionReceived(ActionBuffers actions)
     {
         int action = actions.DiscreteActions[0];
-        float reward = stepPenalty;
+        AddReward(stepPenalty);
 
         switch (action)
         {
@@ -70,9 +108,7 @@ public class RL_Agent : Agent
                 break;
 
             case 1: // Go to treasure
-                var treasure = GetNearestTreasure();
-                if (treasure != null)
-                    MoveTo(treasure.transform);
+                MoveTo(GetNearestTreasure()?.transform);
                 break;
 
             case 2: // Go to base
@@ -80,16 +116,48 @@ public class RL_Agent : Agent
                 break;
 
             case 3: // Go to enemy
-                var enemy = GetNearestEnemy();
-                if (enemy != null)
-                    MoveTo(enemy.transform);
+                MoveTo(GetNearestEnemy()?.transform);
                 break;
 
             case 4: // Attack
                 TryAttack();
                 break;
         }
-        AddReward(reward);
+
+        if (loggingEnabled)
+        {
+            float reward = GetCumulativeReward();
+            string agentId = GetInstanceID().ToString();
+
+            var obs = new float[8];
+            obs[0] = HasTreasure() ? 1f : 0f;
+            obs[1] = IsEnemyVisible() ? 1f : 0f;
+            obs[2] = IsEnemyInAttackRange() ? 1f : 0f;
+            obs[3] = HasTreasureOnMap() ? 1f : 0f;
+            obs[4] = GetNormalizedDistanceToTreasure();
+            obs[5] = GetNormalizedDistanceToEnemy();
+            obs[6] = GetNormalizedDistanceToBase();
+            obs[7] = (float)character.currentHealth / (float)character.maxHealth;
+
+            string line = $"{agentId};{episodeCount};{stepCount};{action};{reward};" +
+                          $"{string.Join(";", obs)}\n";
+
+            logBuffer.Append(line);
+
+            if (stepCount % 200 == 0)
+            {
+                File.AppendAllText(logPath, logBuffer.ToString());
+                logBuffer.Clear();
+            }
+        }
+
+        stepCount++;
+    }
+
+    private void OnApplicationQuit()
+    {
+        if (loggingEnabled && logBuffer.Length > 0)
+            File.AppendAllText(logPath, logBuffer.ToString());
     }
 
     public void AddRewardDeath()

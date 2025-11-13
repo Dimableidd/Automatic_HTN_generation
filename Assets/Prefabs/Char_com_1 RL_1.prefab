@@ -208,6 +208,7 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
+  character: {fileID: 0}
   homeBase: {fileID: 0}
   team: {fileID: 0}
   stepPenalty: -0.001
@@ -217,6 +218,7 @@ MonoBehaviour:
   winReward: 5
   loserReward: -5
   deathPenalty: -1
+  forceLogging: 1
 --- !u!136 &5652164503855054488
 CapsuleCollider:
   m_ObjectHideFlags: 0
