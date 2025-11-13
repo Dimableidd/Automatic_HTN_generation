@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
                             Character character = child.GetComponent<Character>();
                             child.gameObject.SetActive(true);
                             character.currentHealth = character.maxHealth;
-                            character.transform.position = character.spawnPosition;
+                            character.transform.localPosition = character.spawnPosition;
                             character.Agent.ResetPath();
                             character.boolChest = false;
                             character.boolCoin = false;

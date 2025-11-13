@@ -311,9 +311,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: e1cf86a4430d887439d08a963580ffa5, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: c12b17036d452fc45a584129d337cafc, type: 3}
   m_InferenceDevice: 0
-  m_BehaviorType: 0
+  m_BehaviorType: 2
   m_BehaviorName: RL_Agent
   TeamId: 0
   m_UseChildSensors: 1

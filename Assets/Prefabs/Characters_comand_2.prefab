@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b97f5b3eea41a4145a5580565456ec2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  spawnTrasures: {fileID: 0}
   teamName: 1
   character: {fileID: 2519684018374151079, guid: 6bfa5f307e20ba343b34cb6b6688cf15, type: 3}
   score: 0
@@ -118,6 +120,10 @@ PrefabInstance:
       propertyPath: spawnPosition.z
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 7839107067629467662, guid: 6bfa5f307e20ba343b34cb6b6688cf15, type: 3}
+      propertyPath: House
+      value: 
+      objectReference: {fileID: 503027753078388726}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -278,6 +284,10 @@ PrefabInstance:
       propertyPath: spawnPosition.z
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 7839107067629467662, guid: 6bfa5f307e20ba343b34cb6b6688cf15, type: 3}
+      propertyPath: House
+      value: 
+      objectReference: {fileID: 503027753078388726}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
