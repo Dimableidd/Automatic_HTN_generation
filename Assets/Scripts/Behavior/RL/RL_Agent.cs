@@ -53,8 +53,12 @@ public class RL_Agent : Agent
             string agentId = GetInstanceID().ToString();
             logPath = Path.Combine(logsFolder, $"Agent_{agentId}.csv");
 
-            File.WriteAllText(logPath,
-                "agent_id;episode;step;action;reward;hasTreasure;enemyVisible;enemyInRange;treasureOnMap;distTreasure;distEnemy;distBase;health\n");
+            // ✔ Записывать шапку только если файла нет
+            if (!File.Exists(logPath))
+            {
+                File.WriteAllText(logPath,
+                    "agent_id;episode;step;action;reward;hasTreasure;enemyVisible;enemyInRange;treasureOnMap;distTreasure;distEnemy;distBase;health\n");
+            }
 
             Debug.Log($"<color=cyan>[RL_Agent]</color> Logging ENABLED for Agent {agentId}");
         }
@@ -66,20 +70,22 @@ public class RL_Agent : Agent
 
     public override void OnEpisodeBegin()
     {
-        episodeCount++;
-        stepCount = 0;
-
-        Team teamObj = team.GetComponent<Team>();
-        character.currentHealth = character.maxHealth;
-        transform.localPosition = character.spawnPosition;
-        character.Agent.ResetPath();
-        character.boolChest = false;
-        character.boolCoin = false;
-        character.enemy.Clear();
-        if (character.Treasure != null)
-            Destroy(character.Treasure);
-        character.Treasure = null;        
-        character.Target = null;
+        if (character.gameManager.Score_team_1 >= character.gameManager.targetScore || character.gameManager.Score_team_2 >= character.gameManager.targetScore)
+        {
+            episodeCount++;
+            stepCount = 0;
+            Team teamObj = team.GetComponent<Team>();
+            character.currentHealth = character.maxHealth;
+            transform.localPosition = character.spawnPosition;
+            character.Agent.ResetPath();
+            character.boolChest = false;
+            character.boolCoin = false;
+            character.enemy.Clear();
+            if (character.Treasure != null)
+                Destroy(character.Treasure);
+            character.Treasure = null;        
+            character.Target = null;
+        }
 
     }
 
@@ -158,6 +164,16 @@ public class RL_Agent : Agent
     {
         if (loggingEnabled && logBuffer.Length > 0)
             File.AppendAllText(logPath, logBuffer.ToString());
+    }
+    protected new void OnDisable()
+    {
+        base.OnDisable();
+
+        if (loggingEnabled && logBuffer.Length > 0)
+        {
+            File.AppendAllText(logPath, logBuffer.ToString());
+            logBuffer.Clear();
+        }
     }
 
     public void AddRewardDeath()
