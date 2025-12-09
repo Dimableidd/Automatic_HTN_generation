@@ -73,8 +73,12 @@ public class Character : MonoBehaviour
 
     public void Attack (GameObject target)
     {
-        if (Vector3.Distance(gameObject.transform.position, target.transform.position) <= attackDist )
+        if (Vector3.Distance(gameObject.transform.position, target.transform.position) <= attackDist)
+        {
             StartCoroutine(AttackTarget(target.GetComponent<Character>()));
+            if(GetComponent<RL_Agent>())
+                    GetComponent<RL_Agent>().AddReward(GetComponent<RL_Agent>().attackReward);
+        }
     }
 
     public void TakeDamage ()

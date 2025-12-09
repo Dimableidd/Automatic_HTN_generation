@@ -17,12 +17,13 @@ public class RL_Agent : Agent
 
     [Header("Rewards (для логов)")]
     public float stepPenalty = -0.001f;
-    public float attackReward = 0.05f;
+    public float attackReward = 0.1f;
+    public float rightAction = 0.001f;
     public float treasureRewardUp = 1f;
-    public float treasureRewardDown = 2f;
-    public float winReward = 5.0f;
-    public float loserReward = -5.0f;
-    public float deathPenalty = -1.0f;
+    public float treasureRewardDown = 1f;
+    public float winReward = 2f;
+    public float loserReward = -2f;
+    public float deathPenalty = -1f;
 
     [Header("Logging")]
     [Tooltip("Включить логирование (автоматически включается при инференсе)")]
@@ -53,18 +54,13 @@ public class RL_Agent : Agent
             string agentId = GetInstanceID().ToString();
             logPath = Path.Combine(logsFolder, $"Agent_{agentId}.csv");
 
-            // ✔ Записывать шапку только если файла нет
             if (!File.Exists(logPath))
             {
                 File.WriteAllText(logPath,
-                    "agent_id;episode;step;action;reward;hasTreasure;enemyVisible;enemyInRange;treasureOnMap;distTreasure;distEnemy;distBase;health\n");
+                    "agent_id;episode;step;action;reward;hasTreasure;enemyVisible;enemyInRange;treasureOnMap;distTreasure;distEnemy;distBase\n");
             }
 
             Debug.Log($"<color=cyan>[RL_Agent]</color> Logging ENABLED for Agent {agentId}");
-        }
-        else
-        {
-            Debug.Log("<color=yellow>[RL_Agent]</color> Training mode detected — logging disabled");
         }
     }
 
@@ -99,7 +95,6 @@ public class RL_Agent : Agent
         sensor.AddObservation(GetNormalizedDistanceToTreasure());
         sensor.AddObservation(GetNormalizedDistanceToEnemy());
         sensor.AddObservation(GetNormalizedDistanceToBase());
-        sensor.AddObservation(character.currentHealth / character.maxHealth);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -111,22 +106,43 @@ public class RL_Agent : Agent
         {
             case 0: // Idle
                 character.Agent.ResetPath();
+                if(!HasTreasure() && !IsEnemyVisible() && !IsEnemyInAttackRange() && !HasTreasureOnMap())
+                    AddReward(rightAction);
+
                 break;
 
             case 1: // Go to treasure
-                MoveTo(GetNearestTreasure()?.transform);
+                GameObject nearestTreasure = GetNearestTreasure();
+                if(nearestTreasure != null)
+                    MoveTo(nearestTreasure.transform);
+
+                if(!HasTreasure() && !IsEnemyVisible() && !IsEnemyInAttackRange() && HasTreasureOnMap())
+                    AddReward(rightAction);
                 break;
 
             case 2: // Go to base
                 MoveTo(homeBase);
+                if(HasTreasure() && !IsEnemyVisible() && !IsEnemyInAttackRange())
+                    AddReward(rightAction);
+
                 break;
 
             case 3: // Go to enemy
-                MoveTo(GetNearestEnemy()?.transform);
+                GameObject nearestEnemy = GetNearestEnemy();
+
+                if(nearestEnemy != null)
+                    MoveTo(nearestEnemy.transform);
+                
+                if(IsEnemyVisible() && !IsEnemyInAttackRange())
+                    AddReward(rightAction);
                 break;
 
             case 4: // Attack
                 TryAttack();
+
+                if(IsEnemyVisible() && IsEnemyInAttackRange())
+                    AddReward(rightAction);
+
                 break;
         }
 
@@ -135,7 +151,7 @@ public class RL_Agent : Agent
             float reward = GetCumulativeReward();
             string agentId = GetInstanceID().ToString();
 
-            var obs = new float[8];
+            var obs = new float[7];
             obs[0] = HasTreasure() ? 1f : 0f;
             obs[1] = IsEnemyVisible() ? 1f : 0f;
             obs[2] = IsEnemyInAttackRange() ? 1f : 0f;
@@ -143,7 +159,6 @@ public class RL_Agent : Agent
             obs[4] = GetNormalizedDistanceToTreasure();
             obs[5] = GetNormalizedDistanceToEnemy();
             obs[6] = GetNormalizedDistanceToBase();
-            obs[7] = (float)character.currentHealth / (float)character.maxHealth;
 
             string line = $"{agentId};{episodeCount};{stepCount};{action};{reward};" +
                           $"{string.Join(";", obs)}\n";
@@ -254,7 +269,6 @@ public class RL_Agent : Agent
         if (enemy != null && character.CanAttack())
         {
             character.Attack(enemy);
-            AddReward(attackReward);
         }
     }
 
