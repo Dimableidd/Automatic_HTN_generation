@@ -41,9 +41,8 @@ public class RL_Agent : Agent
         team = GetComponentInParent<Team>();
         homeBase = character.HomeBase;
         spawnPosition = transform.position;
-
-        bool trainingMode = Academy.Instance.IsCommunicatorOn;
-        loggingEnabled = !trainingMode || forceLogging;
+        
+        loggingEnabled = forceLogging;
 
         if (loggingEnabled)
         {
@@ -105,40 +104,37 @@ public class RL_Agent : Agent
         switch (action)
         {
             case 0: // Idle
-                character.Agent.ResetPath();
+                Idle();
+
                 if(!HasTreasure() && !IsEnemyVisible() && !IsEnemyInAttackRange() && !HasTreasureOnMap())
                     AddReward(rightAction);
 
                 break;
 
             case 1: // Go to treasure
-                GameObject nearestTreasure = GetNearestTreasure();
-                if(nearestTreasure != null)
-                    MoveTo(nearestTreasure.transform);
+                GoToTreasure();
 
                 if(!HasTreasure() && !IsEnemyVisible() && !IsEnemyInAttackRange() && HasTreasureOnMap())
                     AddReward(rightAction);
                 break;
 
             case 2: // Go to base
-                MoveTo(homeBase);
+                GoToBase();
+
                 if(HasTreasure() && !IsEnemyVisible() && !IsEnemyInAttackRange())
                     AddReward(rightAction);
 
                 break;
 
             case 3: // Go to enemy
-                GameObject nearestEnemy = GetNearestEnemy();
-
-                if(nearestEnemy != null)
-                    MoveTo(nearestEnemy.transform);
+                GoToEnemy();
                 
                 if(IsEnemyVisible() && !IsEnemyInAttackRange())
                     AddReward(rightAction);
                 break;
 
             case 4: // Attack
-                TryAttack();
+                Attack();
 
                 if(IsEnemyVisible() && IsEnemyInAttackRange())
                     AddReward(rightAction);
@@ -205,7 +201,48 @@ public class RL_Agent : Agent
         AddReward(treasureRewardDown);
     }
 
+    #region HTN_ACTIONS
 
+    private void Idle()
+    {
+        character.Agent.ResetPath();
+    }
+
+    private void GoToTreasure()
+    {
+        character.SetTarget(character.GetNearestTreasure()?.transform);
+        if (character.Target == null)
+            return;
+            
+        character.Agent.SetDestination(character.Target.position);
+    }
+
+    private void GoToBase()
+    {
+        character.Agent.SetDestination(character.HomeBase.position);
+    }
+
+    private void GoToEnemy()
+    {
+        character.SetTarget(character.GetNearestEnemy()?.transform);
+        if (character.Target == null)
+            return;
+            
+        character.Agent.SetDestination(character.Target.position);
+    }
+
+    private void Attack()
+    {
+        GameObject enemy = character.GetNearestEnemy();
+        if (enemy != null && character.CanAttack())
+        {
+            character.Attack(enemy);
+        }
+    }
+
+    #endregion
+
+    #region HTN_SENSORS
     private bool HasTreasure()
     {
         return character.boolChest || character.boolCoin;
@@ -233,6 +270,8 @@ public class RL_Agent : Agent
         }
         return false;
     }
+
+    #endregion
 
     private float GetNormalizedDistanceToTreasure()
     {
