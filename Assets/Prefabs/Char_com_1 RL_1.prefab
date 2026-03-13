@@ -52,7 +52,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 5
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5698344433513974085
 MonoBehaviour:
@@ -214,6 +214,8 @@ MonoBehaviour:
   stepPenalty: -0.001
   attackReward: 0.05
   rightAction: 0.001
+  wrongAction: -0.1
+  killEnemyReward: 1
   treasureRewardUp: 1
   treasureRewardDown: 2
   winReward: 5
@@ -305,7 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 7
+    VectorObservationSize: 4
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 0

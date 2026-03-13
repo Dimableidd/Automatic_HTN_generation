@@ -52,7 +52,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 5
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5698344433513974085
 MonoBehaviour:
@@ -172,12 +172,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e8f9463f14c23040ad7a6dedd0a2815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 20
   currentHealth: 20
   Damage: 2
   team: 0
+  gameManager: {fileID: 0}
+  spawnTrasures: {fileID: 0}
   Treasure: {fileID: 0}
   boolChest: 0
   boolCoin: 0
+  spawnPosition: {x: 0, y: 0, z: 0}
   isAttack: 0
   attackDist: 2
   chestIconPrefab: {fileID: 4532785485531469528, guid: 5186994700ad5d744ba84fc4266a17c8, type: 3}

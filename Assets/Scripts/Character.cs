@@ -95,12 +95,14 @@ public class Character : MonoBehaviour
             if(boolChest)
             {
                 boolChest = false;
+                GetComponent<NavMeshAgent>().speed = 3.5f;
                 Destroy(Treasure);
                 spawnTrasures.DropChest(transform);
             }
             if(boolCoin)
             {
                 boolCoin = false;
+                GetComponent<NavMeshAgent>().speed = 3.5f;
                 Destroy(Treasure);
                 spawnTrasures.DropCoin(transform);
             }
@@ -124,6 +126,14 @@ public class Character : MonoBehaviour
 
         if (target == null)
             yield return null;
+
+        if(target.currentHealth - Damage <= 0)
+        {
+            GetComponentInParent<Team>().AddScore(50);
+
+            if(GetComponent<RL_Agent>())
+                    GetComponent<RL_Agent>().AddReward(GetComponent<RL_Agent>().killEnemyReward);
+        }
 
         target.TakeDamage();
 

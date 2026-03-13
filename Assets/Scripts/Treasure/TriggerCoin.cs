@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TriggerCoin : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class TriggerCoin : MonoBehaviour
 
                 player.boolCoin = true;
                 player.SpawnIcon(player.coinIconPrefab);
+                player.GetComponent<NavMeshAgent>().speed = 2f;
 
                 if (gameManager.learning)
                 {

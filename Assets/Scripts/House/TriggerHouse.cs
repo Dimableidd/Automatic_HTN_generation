@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TriggerHouse : MonoBehaviour
 {
@@ -56,6 +57,7 @@ public class TriggerHouse : MonoBehaviour
                 {
                     player.GetComponentInParent<Team>().AddScore(250);
                     player.boolChest = false;
+                    player.GetComponent<NavMeshAgent>().speed = 3.5f;
                     Destroy(player.Treasure);
                     spawnTrasures.DestroyChest();
                     if(gameManager.learning)
@@ -68,6 +70,7 @@ public class TriggerHouse : MonoBehaviour
                 {
                     player.GetComponentInParent<Team>().AddScore(250);
                     player.boolCoin = false;
+                    player.GetComponent<NavMeshAgent>().speed = 3.5f;
                     Destroy(player.Treasure);
                     spawnTrasures.DestroyCoin();
                     if(gameManager.learning)

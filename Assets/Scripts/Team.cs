@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -37,6 +38,7 @@ public class Team : MonoBehaviour
         character.transform.localPosition = character.spawnPosition;
         character.boolChest = false;
         character.boolCoin = false;
+        character.GetComponent<NavMeshAgent>().speed = 3.5f;
         character.enemy.Clear();
         if (character.Treasure != null)
             Destroy(character.Treasure);

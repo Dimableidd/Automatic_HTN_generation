@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEditor;
 
@@ -106,6 +107,7 @@ public class GameManager : MonoBehaviour
                             character.Agent.ResetPath();
                             character.boolChest = false;
                             character.boolCoin = false;
+                            character.GetComponent<NavMeshAgent>().speed = 3.5f;
                             character.enemy.Clear();
                             if (character.Treasure != null)
                                 Destroy(character.Treasure);

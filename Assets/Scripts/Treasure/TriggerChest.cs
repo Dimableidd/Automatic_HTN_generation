@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Animations;
 
 public class TriggerChest : MonoBehaviour
@@ -23,6 +24,7 @@ public class TriggerChest : MonoBehaviour
 
                 player.boolChest = true;
                 player.SpawnIcon(player.chestIconPrefab);
+                player.GetComponent<NavMeshAgent>().speed = 2f;
 
                 if (gameManager.learning)
                 {
