@@ -18,7 +18,6 @@ public class RL_Agent : Agent
 
     [Header("Rewards (для логов)")]
     public float stepPenalty = -0.001f;
-    public float attackReward = 0.1f;
     public float rightAction = 0.1f;
     public float wrongAction = -0.1f;
     public float killEnemyReward = 1f;
@@ -121,16 +120,16 @@ public class RL_Agent : Agent
             case 1: // Go to treasure
                 GoToTreasure();
 
-                if(!HasTreasure() && !IsEnemyVisible() && !IsEnemyInAttackRange() && HasTreasureOnMap())
+                if(!HasTreasure() && HasTreasureOnMap())
                     AddReward(rightAction);
-                else if (!HasTreasureOnMap())
+                else if (!HasTreasureOnMap() || HasTreasure())
                     AddReward(wrongAction);
                 break;
 
             case 2: // Go to base
                 GoToBase();
 
-                if(HasTreasure() && !IsEnemyVisible() && !IsEnemyInAttackRange())
+                if(HasTreasure())
                     AddReward(rightAction);
                 else if (!HasTreasure())
                     AddReward(wrongAction);

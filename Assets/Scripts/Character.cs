@@ -76,8 +76,6 @@ public class Character : MonoBehaviour
         if (Vector3.Distance(gameObject.transform.position, target.transform.position) <= attackDist)
         {
             StartCoroutine(AttackTarget(target.GetComponent<Character>()));
-            if(GetComponent<RL_Agent>())
-                    GetComponent<RL_Agent>().AddReward(GetComponent<RL_Agent>().attackReward);
         }
     }
 
@@ -130,6 +128,7 @@ public class Character : MonoBehaviour
         if(target.currentHealth - Damage <= 0)
         {
             GetComponentInParent<Team>().AddScore(50);
+
 
             if(GetComponent<RL_Agent>())
                     GetComponent<RL_Agent>().AddReward(GetComponent<RL_Agent>().killEnemyReward);
