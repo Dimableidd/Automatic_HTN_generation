@@ -23,6 +23,7 @@ public class RL_Agent : Agent
     public float killEnemyReward = 1f;
     public float treasureRewardUp = 1f;
     public float treasureRewardDown = 1f;
+    public float boosterRewardUp = 1f;
     public float winReward = 2f;
     public float loserReward = -2f;
     public float deathPenalty = -1f;
@@ -74,6 +75,7 @@ public class RL_Agent : Agent
             stepCount = 0;
             Team teamObj = team.GetComponent<Team>();
             character.currentHealth = character.maxHealth;
+            character.currentWeaponStrength = character.maxWeaponStrength;
             transform.localPosition = character.spawnPosition;
             character.Agent.ResetPath();
             character.boolChest = false;
@@ -214,6 +216,10 @@ public class RL_Agent : Agent
     public void AddRewardDownTreashure()
     {
         AddReward(treasureRewardDown);
+    }
+    public void AddRewardUpBooster()
+    {
+        AddReward(boosterRewardUp);
     }
 
     #region HTN_ACTIONS

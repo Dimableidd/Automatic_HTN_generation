@@ -19,9 +19,31 @@ public class Rule_based_AI_Nearest : MonoBehaviour
 
     public void Update()
     {
-        if (character.enemy.Count != 0)
+        if (character.enemy.Count != 0 && character.currentWeaponStrength > 0)
         {
             HandleEnemyLogic();
+        }
+        else if (character.currentHealth <= 5 && !character.boolChest && !character.boolCoin && House.GetComponent<House>().HP.activeSelf)
+        {
+            if(character.Target != House.GetComponent<House>().HP.transform)
+            {
+                character.Agent.ResetPath();
+                character.Target = House.GetComponent<House>().HP.transform;
+                character.Agent.SetDestination(character.Target.position);
+            }
+            else
+                character.Agent.SetDestination(character.Target.position);
+        }
+        else if (character.currentWeaponStrength <= 0 && !character.boolChest && !character.boolCoin && House.GetComponent<House>().weapon.activeSelf)
+        {
+            if(character.Target != House.GetComponent<House>().weapon.transform)
+            {
+                character.Agent.ResetPath();
+                character.Target = House.GetComponent<House>().weapon.transform;
+                character.Agent.SetDestination(character.Target.position);
+            }
+            else
+                character.Agent.SetDestination(character.Target.position);
         }
         else
         {
@@ -33,7 +55,7 @@ public class Rule_based_AI_Nearest : MonoBehaviour
     {
         if (character.Target == null || !character.enemy.Contains(character.Target.gameObject))
         {
-            character.Target = character.enemy[0].transform;
+            character.Target = character.GetNearestEnemy().transform;
             character.Agent.SetDestination(character.Target.position);
         }
         else

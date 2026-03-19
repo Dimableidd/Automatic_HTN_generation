@@ -32,10 +32,11 @@ public class Team : MonoBehaviour
 
     public IEnumerator DestroyAndRespawnCharacter(Character character)
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(10f);
 
         character.currentHealth = character.maxHealth;
         character.transform.localPosition = character.spawnPosition;
+        character.currentWeaponStrength = character.maxWeaponStrength;
         character.boolChest = false;
         character.boolCoin = false;
         character.GetComponent<NavMeshAgent>().speed = 3.5f;

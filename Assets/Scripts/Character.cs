@@ -10,6 +10,8 @@ public class Character : MonoBehaviour
 {
     [SerializeField] public int maxHealth = 20;
     [SerializeField] public int currentHealth = 20;
+    [SerializeField] public int maxWeaponStrength = 15;
+    [SerializeField] public int currentWeaponStrength = 15;
     [SerializeField] public int Damage = 1;
 
     [SerializeField] public int team;
@@ -124,6 +126,11 @@ public class Character : MonoBehaviour
 
         if (target == null)
             yield return null;
+
+        if(currentWeaponStrength <= 0)
+            yield return null;
+        else
+            currentWeaponStrength -= 1;
 
         if(target.currentHealth - Damage <= 0)
         {
