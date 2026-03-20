@@ -59,7 +59,7 @@ public class RL_Agent : Agent
             if (!File.Exists(logPath))
             {
                 File.WriteAllText(logPath,
-                    "agent_id;episode;step;action;reward;hasTreasure;enemyVisible;enemyInRange;treasureOnMap\n");
+                    "agent_id;episode;step;action;reward;hasTreasure;enemyVisible;enemyInRange;treasureOnMap;weaponPointOnMap;HPPointOnMap;highWeaponStrength;middleWeaponStrength;lowWeaponStrength;highHP;middleHP;lowHP\n");
                     //"agent_id;episode;step;action;reward;hasTreasure;enemyVisible;enemyInRange;treasureOnMap;distTreasure;distEnemy;distBase\n");
             }
 
@@ -96,6 +96,18 @@ public class RL_Agent : Agent
         sensor.AddObservation(IsEnemyVisible() ? 1f : 0f);
         sensor.AddObservation(IsEnemyInAttackRange() ? 1f : 0f);
         sensor.AddObservation(HasTreasureOnMap() ? 1f : 0f);
+
+        sensor.AddObservation(HasWeaponPoint() ? 1f : 0f);
+        sensor.AddObservation(HasHPPoint() ? 1f : 0f);
+
+        sensor.AddObservation(HasHighWeaponStrength() ? 1f : 0f);
+        sensor.AddObservation(HasMiddleWeaponStrength() ? 1f : 0f);
+        sensor.AddObservation(HasLowWeaponStrength() ? 1f : 0f);
+
+        sensor.AddObservation(HasHighHP() ? 1f : 0f);
+        sensor.AddObservation(HasMiddleHP() ? 1f : 0f);
+        sensor.AddObservation(HasLowHP() ? 1f : 0f);
+
 
         //sensor.AddObservation(GetNormalizedDistanceToTreasure());
         //sensor.AddObservation(GetNormalizedDistanceToEnemy());
@@ -153,10 +165,29 @@ public class RL_Agent : Agent
 
                 if(IsEnemyVisible() && IsEnemyInAttackRange())
                     AddReward(rightAction);
-                else if (!IsEnemyInAttackRange())
+                else if (!IsEnemyInAttackRange() || (!HasHighWeaponStrength() && !HasMiddleWeaponStrength() && !HasLowWeaponStrength()))
                     AddReward(wrongAction);
 
                 break;
+
+            case 5: // Go to weaponPoint
+                GoToWeaponPoint();
+
+                if(HasWeaponPoint() && (HasLowWeaponStrength() || !HasHighWeaponStrength() && !HasMiddleWeaponStrength() && !HasLowWeaponStrength()))
+                    AddReward(rightAction);
+                else if (!HasWeaponPoint())
+                    AddReward(wrongAction);
+                break;
+
+            case 6: // Go to HPPoint
+                GoToHPPOint();
+
+                if(HasHPPoint() && (HasLowHP() || HasMiddleHP()))
+                    AddReward(rightAction);
+                else if (!HasHPPoint())
+                    AddReward(wrongAction);
+                break;
+
         }
 
         if (loggingEnabled)
@@ -164,11 +195,22 @@ public class RL_Agent : Agent
             float reward = GetCumulativeReward();
             string agentId = GetInstanceID().ToString();
 
-            var obs = new float[4];
+            var obs = new float[12];
             obs[0] = HasTreasure() ? 1f : 0f;
             obs[1] = IsEnemyVisible() ? 1f : 0f;
             obs[2] = IsEnemyInAttackRange() ? 1f : 0f;
             obs[3] = HasTreasureOnMap() ? 1f : 0f;
+
+            obs[4] = HasWeaponPoint() ? 1f : 0f;
+            obs[5] = HasHPPoint() ? 1f : 0f;
+
+            obs[6] = HasHighWeaponStrength() ? 1f : 0f;
+            obs[7] = HasMiddleWeaponStrength() ? 1f : 0f;
+            obs[8] = HasLowWeaponStrength() ? 1f : 0f;
+
+            obs[9] = HasHighHP() ? 1f : 0f;
+            obs[10] = HasMiddleHP() ? 1f : 0f;
+            obs[11] = HasLowHP() ? 1f : 0f;
             //obs[4] = GetNormalizedDistanceToTreasure();
             //obs[5] = GetNormalizedDistanceToEnemy();
             //obs[6] = GetNormalizedDistanceToBase();
@@ -261,6 +303,24 @@ public class RL_Agent : Agent
         }
     }
 
+    private void GoToWeaponPoint()
+    {
+        character.SetTarget(team.house.weapon?.transform);
+        if (character.Target == null)
+            return;
+            
+        character.Agent.SetDestination(character.Target.position);
+    }
+
+    private void GoToHPPOint()
+    {
+        character.SetTarget(team.house.HP?.transform);
+        if (character.Target == null)
+            return;
+            
+        character.Agent.SetDestination(character.Target.position);
+    }
+
     #endregion
 
     #region HTN_SENSORS
@@ -290,6 +350,46 @@ public class RL_Agent : Agent
                 return true;
         }
         return false;
+    }
+
+    private bool HasWeaponPoint()
+    {
+        return team.house.weapon.activeSelf;
+    }
+
+    private bool HasHPPoint()
+    {
+        return team.house.HP.activeSelf;
+    }
+
+    private bool HasHighWeaponStrength()
+    {
+        return character.currentWeaponStrength >= 11 && character.currentWeaponStrength < 16;
+    }
+
+    private bool HasMiddleWeaponStrength()
+    {
+        return character.currentWeaponStrength >= 6 && character.currentWeaponStrength < 11;
+    }
+
+    private bool HasLowWeaponStrength()
+    {
+        return character.currentHealth >= 1 && character.currentHealth < 6;
+    }
+
+    private bool HasHighHP()
+    {
+        return character.currentHealth >= 15 && character.currentHealth < 21;
+    }
+
+    private bool HasMiddleHP()
+    {
+        return character.currentHealth >= 6 && character.currentHealth < 16;
+    }
+
+    private bool HasLowHP()
+    {
+        return character.currentHealth >= 1 && character.currentHealth < 6;
     }
 
     #endregion

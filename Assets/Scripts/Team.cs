@@ -7,9 +7,15 @@ public class Team : MonoBehaviour
 {
     public GameManager gameManager;
     public SpawnTrasures spawnTrasures;
+    public House house;
     public int teamName;
     public GameObject character;
     public int score = 0;
+
+    public void Start()
+    {
+        house = GetComponentInChildren<House>();
+    }
 
     public void AddScore(int points)
     {

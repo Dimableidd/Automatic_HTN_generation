@@ -19,15 +19,18 @@ public class TriggerWeaponPoint : MonoBehaviour
             Character player = other.GetComponent<Character>();
             if (player != null && house.teamName == player.team)
             {
+                if(player.currentWeaponStrength == player.maxWeaponStrength)
+                    return;
+
                 _taken = true;
 
                 player.currentWeaponStrength = player.maxWeaponStrength;
 
                 if (gameManager.learning)
                 {
-                    RL_Agent agent = other.GetComponent<RL_Agent>();
+                    /*RL_Agent agent = other.GetComponent<RL_Agent>();
                     if (agent != null)
-                        agent.AddRewardUpBooster();
+                        agent.AddRewardUpBooster();*/
                 }
 
                 house.SpawnWeapon();
