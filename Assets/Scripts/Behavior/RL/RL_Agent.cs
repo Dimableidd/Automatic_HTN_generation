@@ -155,7 +155,7 @@ public class RL_Agent : Agent
                 
                 if(IsEnemyVisible() && !IsEnemyInAttackRange())
                     AddReward(rightAction);
-                else if (!IsEnemyVisible() || IsEnemyInAttackRange())
+                else if (!IsEnemyVisible() || IsEnemyInAttackRange() || (!HasHighWeaponStrength() && !HasMiddleWeaponStrength() && !HasLowWeaponStrength()))
                     AddReward(wrongAction);
 
                 break;
@@ -175,7 +175,7 @@ public class RL_Agent : Agent
 
                 if(HasWeaponPoint() && (HasLowWeaponStrength() || !HasHighWeaponStrength() && !HasMiddleWeaponStrength() && !HasLowWeaponStrength()))
                     AddReward(rightAction);
-                else if (!HasWeaponPoint())
+                else if (!HasWeaponPoint() || HasTreasure())
                     AddReward(wrongAction);
                 break;
 
@@ -184,7 +184,7 @@ public class RL_Agent : Agent
 
                 if(HasHPPoint() && (HasLowHP() || HasMiddleHP()))
                     AddReward(rightAction);
-                else if (!HasHPPoint())
+                else if (!HasHPPoint() || HasTreasure())
                     AddReward(wrongAction);
                 break;
 
@@ -374,7 +374,7 @@ public class RL_Agent : Agent
 
     private bool HasLowWeaponStrength()
     {
-        return character.currentHealth >= 1 && character.currentHealth < 6;
+        return character.currentWeaponStrength >= 1 && character.currentWeaponStrength < 6;
     }
 
     private bool HasHighHP()
