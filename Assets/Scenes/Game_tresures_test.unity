@@ -130,7 +130,7 @@ PrefabInstance:
     - target: {fileID: 288398298028912237, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: rootTask
       value: 
-      objectReference: {fileID: 11400000, guid: 4e61b3fe2256e2d44a85376d3970b222, type: 2}
+      objectReference: {fileID: 11400000, guid: e67a7c67955573141906072ad7f39837, type: 2}
     - target: {fileID: 1456665134736047896, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: m_LocalPosition.x
       value: 117.5
@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1978372919519615819, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6052391570545857157, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: gameManager
@@ -194,7 +194,7 @@ PrefabInstance:
     - target: {fileID: 8357434907745536723, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: rootTask
       value: 
-      objectReference: {fileID: 11400000, guid: 4e61b3fe2256e2d44a85376d3970b222, type: 2}
+      objectReference: {fileID: 11400000, guid: e67a7c67955573141906072ad7f39837, type: 2}
     - target: {fileID: 8360092001805668600, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -237,7 +237,7 @@ PrefabInstance:
     - target: {fileID: 288398298028912237, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: rootTask
       value: 
-      objectReference: {fileID: 11400000, guid: 4e61b3fe2256e2d44a85376d3970b222, type: 2}
+      objectReference: {fileID: 11400000, guid: e67a7c67955573141906072ad7f39837, type: 2}
     - target: {fileID: 1456665134736047896, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: m_LocalPosition.x
       value: 117.5
@@ -284,7 +284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1978372919519615819, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6052391570545857157, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: gameManager
@@ -301,7 +301,7 @@ PrefabInstance:
     - target: {fileID: 8357434907745536723, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: rootTask
       value: 
-      objectReference: {fileID: 11400000, guid: 4e61b3fe2256e2d44a85376d3970b222, type: 2}
+      objectReference: {fileID: 11400000, guid: e67a7c67955573141906072ad7f39837, type: 2}
     - target: {fileID: 8360092001805668600, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -560,10 +560,10 @@ PrefabInstance:
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 484139047112992149, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -590,8 +590,12 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: stepPenalty
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
@@ -659,7 +663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1978372919519615819, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2238342229149733419, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -690,8 +694,12 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: stepPenalty
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
@@ -700,10 +708,10 @@ PrefabInstance:
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1024,7 +1032,7 @@ PrefabInstance:
     - target: {fileID: 288398298028912237, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: rootTask
       value: 
-      objectReference: {fileID: 11400000, guid: 4e61b3fe2256e2d44a85376d3970b222, type: 2}
+      objectReference: {fileID: 11400000, guid: e67a7c67955573141906072ad7f39837, type: 2}
     - target: {fileID: 1142277652050116869, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: learning
       value: 0
@@ -1075,7 +1083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1978372919519615819, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6052391570545857157, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: gameManager
@@ -1092,7 +1100,7 @@ PrefabInstance:
     - target: {fileID: 8357434907745536723, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: rootTask
       value: 
-      objectReference: {fileID: 11400000, guid: 4e61b3fe2256e2d44a85376d3970b222, type: 2}
+      objectReference: {fileID: 11400000, guid: e67a7c67955573141906072ad7f39837, type: 2}
     - target: {fileID: 8360092001805668600, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1160,8 +1168,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+    - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 484139047112992149, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1188,8 +1200,12 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: stepPenalty
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
@@ -1272,16 +1288,24 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: stepPenalty
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+    - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1308,8 +1332,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+    - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 484139047112992149, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1336,8 +1364,12 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: stepPenalty
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
@@ -1420,16 +1452,24 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: stepPenalty
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+    - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1445,8 +1485,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+    - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 484139047112992149, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1473,8 +1517,12 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: stepPenalty
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
@@ -1557,16 +1605,24 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: stepPenalty
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+    - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1582,8 +1638,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+    - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 484139047112992149, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1610,8 +1670,12 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: stepPenalty
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
@@ -1694,16 +1758,24 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: stepPenalty
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+    - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1721,7 +1793,7 @@ PrefabInstance:
     - target: {fileID: 288398298028912237, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: rootTask
       value: 
-      objectReference: {fileID: 11400000, guid: 4e61b3fe2256e2d44a85376d3970b222, type: 2}
+      objectReference: {fileID: 11400000, guid: e67a7c67955573141906072ad7f39837, type: 2}
     - target: {fileID: 1456665134736047896, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: m_LocalPosition.x
       value: 117.5
@@ -1768,7 +1840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1978372919519615819, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6052391570545857157, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: gameManager
@@ -1785,7 +1857,7 @@ PrefabInstance:
     - target: {fileID: 8357434907745536723, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: rootTask
       value: 
-      objectReference: {fileID: 11400000, guid: 4e61b3fe2256e2d44a85376d3970b222, type: 2}
+      objectReference: {fileID: 11400000, guid: e67a7c67955573141906072ad7f39837, type: 2}
     - target: {fileID: 8360092001805668600, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1828,7 +1900,7 @@ PrefabInstance:
     - target: {fileID: 288398298028912237, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: rootTask
       value: 
-      objectReference: {fileID: 11400000, guid: 4e61b3fe2256e2d44a85376d3970b222, type: 2}
+      objectReference: {fileID: 11400000, guid: e67a7c67955573141906072ad7f39837, type: 2}
     - target: {fileID: 1456665134736047896, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1875,7 +1947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1978372919519615819, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6052391570545857157, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: gameManager
@@ -1892,7 +1964,7 @@ PrefabInstance:
     - target: {fileID: 8357434907745536723, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: rootTask
       value: 
-      objectReference: {fileID: 11400000, guid: 4e61b3fe2256e2d44a85376d3970b222, type: 2}
+      objectReference: {fileID: 11400000, guid: e67a7c67955573141906072ad7f39837, type: 2}
     - target: {fileID: 8360092001805668600, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1935,7 +2007,7 @@ PrefabInstance:
     - target: {fileID: 288398298028912237, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: rootTask
       value: 
-      objectReference: {fileID: 11400000, guid: 4e61b3fe2256e2d44a85376d3970b222, type: 2}
+      objectReference: {fileID: 11400000, guid: e67a7c67955573141906072ad7f39837, type: 2}
     - target: {fileID: 1456665134736047896, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1982,7 +2054,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1978372919519615819, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6052391570545857157, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: gameManager
@@ -1999,7 +2071,7 @@ PrefabInstance:
     - target: {fileID: 8357434907745536723, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: rootTask
       value: 
-      objectReference: {fileID: 11400000, guid: 4e61b3fe2256e2d44a85376d3970b222, type: 2}
+      objectReference: {fileID: 11400000, guid: e67a7c67955573141906072ad7f39837, type: 2}
     - target: {fileID: 8360092001805668600, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2132,10 +2204,10 @@ PrefabInstance:
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 484139047112992149, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2162,8 +2234,12 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: stepPenalty
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
@@ -2254,8 +2330,12 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: stepPenalty
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
@@ -2264,10 +2344,10 @@ PrefabInstance:
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

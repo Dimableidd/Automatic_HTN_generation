@@ -261,6 +261,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Characters_comand_1 HTN_RL
       objectReference: {fileID: 0}
+    - target: {fileID: 6974434929720374074, guid: 58376575201811f45b48487a10f9de16, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1142277652050116869}
+    - target: {fileID: 6974434929720374074, guid: 58376575201811f45b48487a10f9de16, type: 3}
+      propertyPath: spawnTrasures
+      value: 
+      objectReference: {fileID: 5469046000574203930}
     - target: {fileID: 8115910551823159538, guid: 58376575201811f45b48487a10f9de16, type: 3}
       propertyPath: spawnPosition.x
       value: 2

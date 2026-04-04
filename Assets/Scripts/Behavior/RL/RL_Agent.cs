@@ -17,7 +17,7 @@ public class RL_Agent : Agent
 
 
     [Header("Rewards (для логов)")]
-    public float stepPenalty = -0.001f;
+    public float stepPenalty = -0.01f;
     public float rightAction = 0.1f;
     public float wrongAction = -0.1f;
     public float killEnemyReward = 1f;

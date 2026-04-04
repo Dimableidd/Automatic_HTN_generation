@@ -213,15 +213,15 @@ MonoBehaviour:
   character: {fileID: 0}
   homeBase: {fileID: 0}
   team: {fileID: 0}
-  stepPenalty: -0.001
-  rightAction: 0.001
+  stepPenalty: -0.01
+  rightAction: 0.1
   wrongAction: -0.1
   killEnemyReward: 1
   treasureRewardUp: 1
-  treasureRewardDown: 2
+  treasureRewardDown: 1
   boosterRewardUp: 1
-  winReward: 5
-  loserReward: -5
+  winReward: 2
+  loserReward: -2
   deathPenalty: -1
   forceLogging: 0
 --- !u!136 &5652164503855054488
