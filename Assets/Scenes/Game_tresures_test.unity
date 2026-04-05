@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3592492480533063895, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: e4ca40a4d692f494bbb7443358307a6b, type: 2}
     - target: {fileID: 6052391570545857157, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: gameManager
       value: 
@@ -286,6 +290,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3592492480533063895, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 2883e0fb4be97664cb28d6ff0a1347cd, type: 2}
     - target: {fileID: 6052391570545857157, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: gameManager
       value: 
@@ -575,7 +583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1456665134736047896, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -627,7 +635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1711194091907658368, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_IgnoreFromBuild
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1711194091907658368, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_AffectedAgents.Array.size
@@ -656,10 +664,10 @@ PrefabInstance:
     - target: {fileID: 3592492480533063895, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 773cbe670c3ea5c4a84104d260668c7a, type: 2}
+      objectReference: {fileID: 23800000, guid: 528437d2433f01d4681e1e0ce9d365ef, type: 2}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
@@ -1037,6 +1045,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3592492480533063895, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: b1b4a6dd50a7e6f4891677558a8dfd96, type: 2}
     - target: {fileID: 6052391570545857157, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: gameManager
       value: 
@@ -1137,7 +1149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1456665134736047896, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1205,7 +1217,7 @@ PrefabInstance:
       objectReference: {fileID: 23800000, guid: 443c27a42f191c14082ae4735260af5b, type: 2}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
@@ -1253,7 +1265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1456665134736047896, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1321,7 +1333,7 @@ PrefabInstance:
       objectReference: {fileID: 23800000, guid: 23855a8a1396dac4f95e542c450c489b, type: 2}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
@@ -1358,7 +1370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1456665134736047896, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1424,9 +1436,25 @@ PrefabInstance:
       propertyPath: m_NavMeshData
       value: 
       objectReference: {fileID: 23800000, guid: e93aee403d7be9f4ea45f8055fbc56e7, type: 2}
+    - target: {fileID: 3592492480533063895, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: m_GenerateLinks
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592492480533063895, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: m_BuildHeightMesh
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592492480533063895, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: m_OverrideTileSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592492480533063895, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: m_OverrideVoxelSize
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
@@ -1463,7 +1491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1456665134736047896, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1531,7 +1559,7 @@ PrefabInstance:
       objectReference: {fileID: 23800000, guid: be8e29a1a192b2949ba991c9691ea8a2, type: 2}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
@@ -1602,6 +1630,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3592492480533063895, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: f280df783e3df4a42a16e6a226dfebd2, type: 2}
     - target: {fileID: 6052391570545857157, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: gameManager
       value: 
@@ -1709,6 +1741,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3592492480533063895, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 408a26db083ce784d90263b6c4588e8f, type: 2}
+    - target: {fileID: 3684227495976990431, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6052391570545857157, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: gameManager
       value: 
@@ -1813,6 +1853,14 @@ PrefabInstance:
       value: GameScene_RB-vs-HTN_RL (4)
       objectReference: {fileID: 0}
     - target: {fileID: 1978372919519615819, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592492480533063895, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: efa875f90fd38b74b9aec4144a40e2ac, type: 2}
+    - target: {fileID: 3684227495976990431, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1979,7 +2027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1142277652050116869, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: learning
@@ -2048,14 +2096,18 @@ PrefabInstance:
     - target: {fileID: 3592492480533063895, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 528437d2433f01d4681e1e0ce9d365ef, type: 2}
+      objectReference: {fileID: 23800000, guid: 773cbe670c3ea5c4a84104d260668c7a, type: 2}
+    - target: {fileID: 3592492480533063895, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
+      propertyPath: m_CollectObjects
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4034710877134036438, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 6828191813710160840, guid: 7ee176ee256a1e247b8a4d277df10c7f, type: 3}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
