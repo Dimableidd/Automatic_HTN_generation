@@ -9,8 +9,10 @@ public class Task_Attack : HTNTask
     {
         return new Dictionary<string, object>
         {
+            { "hasTreasure", false },
             { "enemyVisible", true },
-            { "enemyInRange", true }
+            { "enemyInRange", true },
+            { "treasureOnMap", false}
         };
     }
 

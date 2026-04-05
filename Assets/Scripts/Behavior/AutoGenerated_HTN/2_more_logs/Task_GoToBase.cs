@@ -10,7 +10,6 @@ public class Task_GoToBase : HTNTask
         return new Dictionary<string, object>
         {
             { "hasTreasure", true },
-            { "enemyVisible", false },
             { "enemyInRange", false }
         };
     }
@@ -19,7 +18,7 @@ public class Task_GoToBase : HTNTask
     {
         return new Dictionary<string, object>
         {
-            { "treasureOnMap", false }
+            { "hasTreasure", false }
         };
     }
 

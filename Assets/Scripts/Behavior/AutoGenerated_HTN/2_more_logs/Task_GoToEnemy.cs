@@ -9,8 +9,8 @@ public class Task_GoToEnemy : HTNTask
     {
         return new Dictionary<string, object>
         {
-            { "hasTreasure", true },
-            { "enemyVisible", false },
+            { "hasTreasure", false },
+            { "enemyVisible", true },
             { "enemyInRange", false },
             { "treasureOnMap", false }
         };
@@ -18,7 +18,10 @@ public class Task_GoToEnemy : HTNTask
 
     public override Dictionary<string, object> Effects()
     {
-        return new Dictionary<string, object>();
+        return new Dictionary<string, object>
+        {
+            { "enemyInRange", true }
+        };
     }
 
     public override TaskResult Execute(Character character)

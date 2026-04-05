@@ -12,13 +12,16 @@ public class Task_Idle : HTNTask
             { "hasTreasure", false },
             { "enemyVisible", false },
             { "enemyInRange", false },
-            { "treasureOnMap", true }
+            { "treasureOnMap", false }
         };
     }
 
     public override Dictionary<string, object> Effects()
     {
-        return new Dictionary<string, object>();
+        return new Dictionary<string, object>
+        {
+            { "treasureOnMap", true }
+        };
     }
 
     public override TaskResult Execute(Character character)

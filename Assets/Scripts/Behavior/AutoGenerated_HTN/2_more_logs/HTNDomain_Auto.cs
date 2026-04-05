@@ -12,8 +12,21 @@ public class HTNDomain_Auto : HTNCompoundTask
             (
                 new Dictionary<string, object>
                 {
+                    { "hasTreasure", true },
+                    { "enemyInRange", false }
+                },
+                new List<HTNTask>
+                {
+                    CreateInstance<Task_GoToBase>()
+                }
+            ),
+            (
+                new Dictionary<string, object>
+                {
+                    { "hasTreasure", false },
                     { "enemyVisible", true },
-                    { "enemyInRange", true }
+                    { "enemyInRange", true },
+                    { "treasureOnMap", false}
                 },
                 new List<HTNTask>
                 {
@@ -26,6 +39,18 @@ public class HTNDomain_Auto : HTNCompoundTask
                     { "hasTreasure", false },
                     { "enemyVisible", false },
                     { "enemyInRange", false },
+                    { "treasureOnMap", false }
+                },
+                new List<HTNTask>
+                {
+                    CreateInstance<Task_Idle>()
+                }
+            ),
+            (
+                new Dictionary<string, object>
+                {
+                    { "hasTreasure", false },
+                    { "enemyInRange", false },
                     { "treasureOnMap", true }
                 },
                 new List<HTNTask>
@@ -36,26 +61,14 @@ public class HTNDomain_Auto : HTNCompoundTask
             (
                 new Dictionary<string, object>
                 {
-                    { "hasTreasure", true },
-                    { "enemyVisible", false },
-                    { "enemyInRange", false }
-                },
-                new List<HTNTask>
-                {
-                    CreateInstance<Task_GoToBase>()
-                }
-            ),
-            (
-                new Dictionary<string, object>
-                {
                     { "hasTreasure", false },
-                    { "enemyVisible", false },
+                    { "enemyVisible", true },
                     { "enemyInRange", false },
-                    { "treasureOnMap", true }
+                    { "treasureOnMap", false }
                 },
                 new List<HTNTask>
                 {
-                    CreateInstance<Task_Idle>()
+                    CreateInstance<Task_GoToEnemy>()
                 }
             )
         };
