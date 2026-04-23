@@ -9,10 +9,15 @@ public class Task_Attack_2 : HTNTask
     {
         return new Dictionary<string, object>
         {
+            { "hasTreasure", false },
             { "enemyVisible", true },
             { "enemyInRange", true },
+            { "treasureOnMap", false },
             { "weaponPointOnMap", true },
-            { "lowWeaponStrength", false }
+            { "lowWeaponStrength", false },
+            { "highHP", true },
+            { "middleHP", false },
+            { "lowHP", false }
         };
     }
 

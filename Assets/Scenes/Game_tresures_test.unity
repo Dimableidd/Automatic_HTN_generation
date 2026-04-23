@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3592492480533063895, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: e4ca40a4d692f494bbb7443358307a6b, type: 2}
     - target: {fileID: 6052391570545857157, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: gameManager
       value: 
@@ -286,6 +290,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3592492480533063895, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 2883e0fb4be97664cb28d6ff0a1347cd, type: 2}
     - target: {fileID: 6052391570545857157, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: gameManager
       value: 
@@ -560,7 +568,7 @@ PrefabInstance:
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: ceb4106dec3ac8d4b824d1250e8a0949, type: 3}
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
       value: 2
@@ -651,7 +659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1711194091907658368, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_IgnoreFromBuild
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1711194091907658368, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_AffectedAgents.Array.size
@@ -708,7 +716,7 @@ PrefabInstance:
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: ceb4106dec3ac8d4b824d1250e8a0949, type: 3}
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
       value: 2
@@ -1085,6 +1093,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3592492480533063895, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: b1b4a6dd50a7e6f4891677558a8dfd96, type: 2}
     - target: {fileID: 6052391570545857157, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: gameManager
       value: 
@@ -1170,10 +1182,10 @@ PrefabInstance:
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 484139047112992149, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1205,7 +1217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
@@ -1293,7 +1305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
@@ -1302,10 +1314,10 @@ PrefabInstance:
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1334,10 +1346,10 @@ PrefabInstance:
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 484139047112992149, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1369,7 +1381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
@@ -1457,7 +1469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
@@ -1466,10 +1478,10 @@ PrefabInstance:
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1487,10 +1499,10 @@ PrefabInstance:
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 484139047112992149, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1522,7 +1534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
@@ -1610,7 +1622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
@@ -1619,10 +1631,10 @@ PrefabInstance:
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1640,10 +1652,10 @@ PrefabInstance:
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 484139047112992149, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1675,7 +1687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
@@ -1763,7 +1775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
@@ -1772,10 +1784,10 @@ PrefabInstance:
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1842,6 +1854,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3592492480533063895, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: f280df783e3df4a42a16e6a226dfebd2, type: 2}
     - target: {fileID: 6052391570545857157, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: gameManager
       value: 
@@ -1949,6 +1965,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3592492480533063895, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 408a26db083ce784d90263b6c4588e8f, type: 2}
     - target: {fileID: 6052391570545857157, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: gameManager
       value: 
@@ -2056,6 +2076,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3592492480533063895, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: efa875f90fd38b74b9aec4144a40e2ac, type: 2}
     - target: {fileID: 6052391570545857157, guid: 119ac402a9ed1b44d848d9ac58042261, type: 3}
       propertyPath: gameManager
       value: 
@@ -2204,10 +2228,10 @@ PrefabInstance:
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 179592510836196808, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 484139047112992149, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2239,7 +2263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 514818745771507901, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
@@ -2312,7 +2336,7 @@ PrefabInstance:
     - target: {fileID: 3592492480533063895, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 23800000, guid: 3b0655da4d9016043a875f5aa4c8ce29, type: 2}
     - target: {fileID: 4034710877134036438, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: character
       value: 
@@ -2335,7 +2359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: forceLogging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7191625778302772138, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: treasureRewardDown
@@ -2344,10 +2368,10 @@ PrefabInstance:
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 8039f3467df092c44ae334c9c453c083, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7392310307376162527, guid: e37f39ba8e2abe24ca37172da2f2d89e, type: 3}
       propertyPath: m_BehaviorType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

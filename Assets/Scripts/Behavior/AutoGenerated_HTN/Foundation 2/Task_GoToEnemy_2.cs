@@ -11,7 +11,10 @@ public class Task_GoToEnemy_2 : HTNTask
         {
             { "hasTreasure", false },
             { "enemyVisible", true },
-            { "enemyInRange", false }
+            { "enemyInRange", false },
+            { "weaponPointOnMap", true },
+            { "lowWeaponStrength", false },
+            { "lowHP", false }
         };
     }
 

@@ -11,7 +11,10 @@ public class Task_GoToTreasure_2 : HTNTask
         {
             { "hasTreasure", false },
             { "enemyInRange", false },
-            { "treasureOnMap", true }
+            { "treasureOnMap", true },
+            { "weaponPointOnMap", true },
+            { "lowWeaponStrength", false },
+            { "lowHP", false }
         };
     }
 

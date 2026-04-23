@@ -9,8 +9,10 @@ public class Task_GoToHPPOint_2 : HTNTask
     {
         return new Dictionary<string, object>
         {
+            { "weaponPointOnMap", true },
             { "HPPointOnMap", true },
-            { "middleHP", true }
+            { "lowWeaponStrength", false },
+            { "highHP", false }
         };
     }
 

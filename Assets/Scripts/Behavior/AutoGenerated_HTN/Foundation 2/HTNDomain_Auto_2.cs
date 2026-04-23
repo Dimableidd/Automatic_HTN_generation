@@ -12,32 +12,10 @@ public class HTNDomain_Auto_2 : HTNCompoundTask
             (
                 new Dictionary<string, object>
                 {
-                    { "hasTreasure", true },
                     { "weaponPointOnMap", true },
-                    { "HPPointOnMap", true }
-                },
-                new List<HTNTask>
-                {
-                    CreateInstance<Task_GoToBase_2>()
-                }
-            ),
-            (
-                new Dictionary<string, object>
-                {
-                    { "hasTreasure", false },
-                    { "enemyVisible", true },
-                    { "enemyInRange", false }
-                },
-                new List<HTNTask>
-                {
-                    CreateInstance<Task_GoToEnemy_2>()
-                }
-            ),
-            (
-                new Dictionary<string, object>
-                {
                     { "HPPointOnMap", true },
-                    { "middleHP", true }
+                    { "lowWeaponStrength", false },
+                    { "highHP", false }
                 },
                 new List<HTNTask>
                 {
@@ -48,8 +26,41 @@ public class HTNDomain_Auto_2 : HTNCompoundTask
                 new Dictionary<string, object>
                 {
                     { "hasTreasure", false },
+                    { "enemyVisible", true },
                     { "enemyInRange", false },
-                    { "treasureOnMap", true }
+                    { "weaponPointOnMap", true },
+                    { "lowWeaponStrength", false },
+                    { "lowHP", false }
+                },
+                new List<HTNTask>
+                {
+                    CreateInstance<Task_GoToEnemy_2>()
+                }
+            ),
+            (
+                new Dictionary<string, object>
+                {
+                    { "hasTreasure", true },
+                    { "enemyInRange", false },
+                    { "weaponPointOnMap", true },
+                    { "HPPointOnMap", true },
+                    { "lowWeaponStrength", false },
+                    { "lowHP", false }
+                },
+                new List<HTNTask>
+                {
+                    CreateInstance<Task_GoToBase_2>()
+                }
+            ),
+            (
+                new Dictionary<string, object>
+                {
+                    { "hasTreasure", false },
+                    { "enemyInRange", false },
+                    { "treasureOnMap", true },
+                    { "weaponPointOnMap", true },
+                    { "lowWeaponStrength", false },
+                    { "lowHP", false }
                 },
                 new List<HTNTask>
                 {
@@ -59,27 +70,19 @@ public class HTNDomain_Auto_2 : HTNCompoundTask
             (
                 new Dictionary<string, object>
                 {
+                    { "hasTreasure", false },
                     { "enemyVisible", true },
                     { "enemyInRange", true },
+                    { "treasureOnMap", false },
                     { "weaponPointOnMap", true },
-                    { "lowWeaponStrength", false }
-                },
-                new List<HTNTask>
-                {
-                    CreateInstance<Task_Attack_2>()
-                }
-            ),
-            (
-                new Dictionary<string, object>
-                {
-                    { "weaponPointOnMap", true },
-                    { "highWeaponStrength", false },
-                    { "middleWeaponStrength", false },
+                    { "lowWeaponStrength", false },
+                    { "highHP", true },
+                    { "middleHP", false },
                     { "lowHP", false }
                 },
                 new List<HTNTask>
                 {
-                    CreateInstance<Task_GoToWeaponPoint_2>()
+                    CreateInstance<Task_Attack_2>()
                 }
             ),
             (
@@ -90,13 +93,27 @@ public class HTNDomain_Auto_2 : HTNCompoundTask
                     { "enemyInRange", false },
                     { "treasureOnMap", false },
                     { "weaponPointOnMap", true },
-                    { "HPPointOnMap", true},
+                    { "HPPointOnMap", true },
                     { "lowWeaponStrength", false },
                     { "lowHP", false }
                 },
                 new List<HTNTask>
                 {
                     CreateInstance<Task_Idle_2>()
+                }
+            ),
+            (
+                new Dictionary<string, object>
+                {
+                    { "hasTreasure", false },
+                    { "treasureOnMap", false },
+                    { "weaponPointOnMap", true },
+                    { "lowWeaponStrength", false },
+                    { "lowHP", false }
+                },
+                new List<HTNTask>
+                {
+                    CreateInstance<Task_GoToWeaponPoint_2>()
                 }
             )
         };

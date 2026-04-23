@@ -10,8 +10,11 @@ public class Task_GoToBase_2 : HTNTask
         return new Dictionary<string, object>
         {
             { "hasTreasure", true },
+            { "enemyInRange", false },
             { "weaponPointOnMap", true },
-            { "HPPointOnMap", true }
+            { "HPPointOnMap", true },
+            { "lowWeaponStrength", false },
+            { "lowHP", false }
         };
     }
 
