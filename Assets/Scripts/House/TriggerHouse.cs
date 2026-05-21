@@ -56,6 +56,7 @@ public class TriggerHouse : MonoBehaviour
                 if (player.boolChest)
                 {
                     player.GetComponentInParent<Team>().AddScore(250);
+                    gameManager.SetTreasure(player.team);
                     player.boolChest = false;
                     player.GetComponent<NavMeshAgent>().speed = 3.5f;
                     Destroy(player.Treasure);
@@ -69,6 +70,7 @@ public class TriggerHouse : MonoBehaviour
                 else if (player.boolCoin)
                 {
                     player.GetComponentInParent<Team>().AddScore(250);
+                    gameManager.SetTreasure(player.team);
                     player.boolCoin = false;
                     player.GetComponent<NavMeshAgent>().speed = 3.5f;
                     Destroy(player.Treasure);

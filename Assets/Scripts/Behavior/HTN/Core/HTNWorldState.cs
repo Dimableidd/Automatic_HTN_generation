@@ -39,7 +39,6 @@ public class HTNWorldState
     {
         foreach (var key in state.Keys)
         {
-            // Проверяем тип значения и приводим его к строке
             object value = state[key];
             string valueString;
 

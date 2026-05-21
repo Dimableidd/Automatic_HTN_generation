@@ -18,13 +18,13 @@ public class RL_Agent : Agent
 
     [Header("Rewards (для логов)")]
     public float stepPenalty = -0.001f;
-    public float rightAction = 0.1f;
+    public float rightAction = 0.001f;
     public float wrongAction = -0.1f;
     public float killEnemyReward = 1f;
     public float treasureRewardUp = 1f;
-    public float treasureRewardDown = 1f;
-    public float winReward = 2f;
-    public float loserReward = -2f;
+    public float treasureRewardDown = 2f;
+    public float winReward = 5f;
+    public float loserReward = -5f;
     public float deathPenalty = -1f;
 
     [Header("Logging")]
@@ -36,6 +36,30 @@ public class RL_Agent : Agent
     private StringBuilder logBuffer = new StringBuilder();
     private int stepCount = 0;
     private int episodeCount = 0;
+
+    private int lastAction = -1;
+    private int[] lastState = new int[4] { -1, -1, -1, -1 };
+
+    bool IsDifferent(int[] currentState, int action)
+    {
+        if (action != lastAction)
+            return true;
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (currentState[i] != lastState[i])
+                return true;
+        }
+
+        return false;
+    }
+    
+    void UpdateLast(int[] state, int action)
+    {
+        lastAction = action;
+        for (int i = 0; i < 4; i++)
+            lastState[i] = state[i];
+    }
 
     public override void Initialize()
     {
@@ -59,7 +83,6 @@ public class RL_Agent : Agent
             {
                 File.WriteAllText(logPath,
                     "agent_id;episode;step;action;reward;hasTreasure;enemyVisible;enemyInRange;treasureOnMap\n");
-                    //"agent_id;episode;step;action;reward;hasTreasure;enemyVisible;enemyInRange;treasureOnMap;distTreasure;distEnemy;distBase\n");
             }
 
             Debug.Log($"<color=cyan>[RL_Agent]</color> Logging ENABLED for Agent {agentId}");
@@ -94,10 +117,6 @@ public class RL_Agent : Agent
         sensor.AddObservation(IsEnemyVisible() ? 1f : 0f);
         sensor.AddObservation(IsEnemyInAttackRange() ? 1f : 0f);
         sensor.AddObservation(HasTreasureOnMap() ? 1f : 0f);
-
-        //sensor.AddObservation(GetNormalizedDistanceToTreasure());
-        //sensor.AddObservation(GetNormalizedDistanceToEnemy());
-        //sensor.AddObservation(GetNormalizedDistanceToBase());
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -167,9 +186,6 @@ public class RL_Agent : Agent
             obs[1] = IsEnemyVisible() ? 1f : 0f;
             obs[2] = IsEnemyInAttackRange() ? 1f : 0f;
             obs[3] = HasTreasureOnMap() ? 1f : 0f;
-            //obs[4] = GetNormalizedDistanceToTreasure();
-            //obs[5] = GetNormalizedDistanceToEnemy();
-            //obs[6] = GetNormalizedDistanceToBase();
 
             string line = $"{agentId};{episodeCount};{stepCount};{action};{reward};" +
                           $"{string.Join(";", obs)}\n";
@@ -181,6 +197,29 @@ public class RL_Agent : Agent
                 File.AppendAllText(logPath, logBuffer.ToString());
                 logBuffer.Clear();
             }
+        }
+
+        int[] state = new int[]
+        {
+            HasTreasure() ? 1 : 0,
+            IsEnemyVisible() ? 1 : 0,
+            IsEnemyInAttackRange() ? 1 : 0,
+            HasTreasureOnMap() ? 1 : 0
+        };
+
+        if (IsDifferent(state, action))
+        {
+            GlobalManager.Instance.LogAction(
+                true,
+                GetInstanceID(),
+                state[0],
+                state[1],
+                state[2],
+                state[3],
+                action
+            );
+
+            UpdateLast(state, action);
         }
 
         stepCount++;

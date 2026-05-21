@@ -13,11 +13,17 @@ public class GameManager : MonoBehaviour
         public int targetScore = 1500;
         public int Score_team_1 = 0;
         public int Score_team_2 = 0;
-        //public int maxRounds = 11; // Максимальное количество раундов
+        public int Destr_team_1 = 0;
+        public int Destr_team_2 = 0;
+        public int Treas_team_1 = 0;
+        public int Treas_team_2 = 0;
+        public int maxRounds = 5; // Максимальное количество раундов
         public int currentRound = 1;
 
         public int CountWinTeamOne = 0;
         public int CountWinTeamTwo = 0;
+
+        private float episodeStartTime;
 
         //public Text comand_1;
         //public Text comand_2;
@@ -31,6 +37,11 @@ public class GameManager : MonoBehaviour
         {
             //CheckEnd();
             CheckEndEpisode();
+        }
+
+        void Start()
+        {
+            episodeStartTime = Time.time;
         }
         
         public void CheckEndEpisode()
@@ -77,9 +88,58 @@ public class GameManager : MonoBehaviour
             EndGame();
         }
     }*/
+        public void SetDestroyed(int team)
+        {
+            if(team == 0)
+                Destr_team_1++;
+            else
+                Destr_team_2++;
+        }
+
+        public void SetTreasure(int team)
+        {
+            if(team == 0)
+                Treas_team_1++;
+            else
+                Treas_team_2++;
+        }
 
         public void ResetGame(bool winTeam_1)
         {
+            if (currentRound + 1 > maxRounds)
+            {
+                GlobalManager.Instance.SetWinRate(CountWinTeamOne,CountWinTeamTwo);
+                float episodeTime = Time.time - episodeStartTime;
+
+                GlobalManager.Instance.SetMetrics(
+                    Score_team_1,
+                    Score_team_2,
+                    episodeTime,
+                    Destr_team_1,
+                    Destr_team_2,
+                    Treas_team_1,
+                    Treas_team_2
+                );
+                
+                GlobalManager.Instance.EndSimulation();
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                float episodeTime = Time.time - episodeStartTime;
+
+                GlobalManager.Instance.SetMetrics(
+                    Score_team_1,
+                    Score_team_2,
+                    episodeTime,
+                    Destr_team_1,
+                    Destr_team_2,
+                    Treas_team_1,
+                    Treas_team_2
+                );
+            }
+
+
             instantiatedTreasures.GetComponent<SpawnTrasures>().DestroyAll();
             
             foreach(GameObject team in instantiatedTeams)
@@ -122,6 +182,13 @@ public class GameManager : MonoBehaviour
 
             Score_team_1 = 0;
             Score_team_2 = 0;
+
+            Destr_team_1 = 0;
+            Destr_team_2 = 0;
+            Treas_team_1 = 0;
+            Treas_team_2 = 0;
+
+            episodeStartTime = Time.time;
             //comand_1.text = $"{0}";
             //comand_2.text = $"{0}";
         }

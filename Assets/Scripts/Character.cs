@@ -129,6 +129,8 @@ public class Character : MonoBehaviour
         {
             GetComponentInParent<Team>().AddScore(50);
 
+            gameManager.SetDestroyed(team);
+
 
             if(GetComponent<RL_Agent>())
                     GetComponent<RL_Agent>().AddReward(GetComponent<RL_Agent>().killEnemyReward);
