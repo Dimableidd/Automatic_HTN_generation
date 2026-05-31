@@ -220,7 +220,7 @@ MonoBehaviour:
   winReward: 5
   loserReward: -5
   deathPenalty: -1
-  forceLogging: 1
+  forceLogging: 0
 --- !u!136 &5652164503855054488
 CapsuleCollider:
   m_ObjectHideFlags: 0
